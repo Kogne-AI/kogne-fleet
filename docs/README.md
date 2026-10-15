@@ -49,6 +49,7 @@ must live under one of these top-level categories instead of directly under
 
 ## References
 
+- [Container deployment](reference/container-deployment.md): the production image, persistent home, native browser pairing, CapRover settings, recovery and access limits.
 - [Releasing](reference/releasing.md): the stable and nightly channels, `npm run release`,
   the GitHub Actions publish through npm trusted publishing, and how installs learn about and
   apply updates.
