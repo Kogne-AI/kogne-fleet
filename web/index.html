@@ -12,6 +12,26 @@
         if (t === 'dark') document.documentElement.dataset.theme = 'dark';
         else if (t === 'light') document.documentElement.dataset.theme = 'light';
       })();
+      (function() {
+        var origFetch = window.fetch;
+        window.fetch = function(input, init) {
+          try {
+            var url = typeof input === 'string' ? input : (input && input.url) ? input.url : '';
+            if (url && (url.startsWith('/api/') || url.indexOf('/api/') !== -1)) {
+              var token = localStorage.getItem('walnut.deviceToken');
+              if (token) {
+                init = init ? Object.assign({}, init) : {};
+                var h = new Headers(init.headers || {});
+                if (!h.has('Authorization')) {
+                  h.set('Authorization', 'Bearer ' + token);
+                }
+                init.headers = h;
+              }
+            }
+          } catch(e) {}
+          return origFetch.call(this, input, init);
+        };
+      })();
     </script>
   </head>
   <body>
