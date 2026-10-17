@@ -17,19 +17,19 @@
  */
 
 :root {
-  /* Amber that reads on white without shouting. */
-  --walnut-accent: #b45309;
-  --walnut-accent-strong: #92400e;
+  /* The palette gives this state no separate role, so it is muted. */
+  --walnut-accent: #615C54;
+  --walnut-accent-strong: #615C54;
 }
 :root[data-theme="dark"] {
-  /* Lifted for dark surfaces — #b45309 fails contrast on #1C1C1E. */
-  --walnut-accent: #e0a35a;
-  --walnut-accent-strong: #eab676;
+  /* Same muted role on the dark page. */
+  --walnut-accent: #615C54;
+  --walnut-accent-strong: #615C54;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --walnut-accent: #e0a35a;
-    --walnut-accent-strong: #eab676;
+    --walnut-accent: #615C54;
+    --walnut-accent-strong: #615C54;
   }
 }
 
@@ -56,7 +56,7 @@
   border: 1.5px solid var(--border);
   border-radius: 14px;
   padding: 18px 16px 16px;
-  background: var(--bg);
+  background: var(--bg-secondary);
   font-family: inherit;
   text-align: left;
   cursor: pointer;
@@ -76,7 +76,7 @@
 .draft-intent-ic svg, .draft-intent-walnut-mark { width: 24px; height: 24px; display: block; }
 /* The Walnut mark is an app icon: rounded like one (iOS corner ratio, ~22%). */
 .draft-intent-walnut-mark { border-radius: 5.5px; }
-.draft-intent-card.is-active .draft-intent-ic { color: var(--accent); }
+.draft-intent-card.is-active .draft-intent-ic { color: var(--fg); }
 .draft-intent-card-walnut.is-active .draft-intent-ic { color: var(--walnut-accent); }
 .draft-intent-t { display: block; font-weight: 700; font-size: 14px; margin-bottom: 5px; color: var(--fg); }
 .draft-intent-d { display: block; font-size: 12px; color: var(--fg-muted); line-height: 1.5; }
@@ -87,7 +87,7 @@
   cursor: default;
 }
 .draft-intent-card.is-active:hover { transform: none; }
-.draft-intent-card.is-active .draft-intent-t { color: var(--accent); }
+.draft-intent-card.is-active .draft-intent-t { color: var(--fg); }
 .draft-intent-card-walnut.is-active {
   border-color: var(--walnut-accent);
   background: color-mix(in srgb, var(--walnut-accent) 7%, var(--bg));
@@ -192,7 +192,7 @@
    loses to it silently. The tint composites over the ::before glass layer. */
 .session-panel-header.session-panel-header-needs-action,
 .session-panel:not(.pending-session-panel):not(.draft-session-panel) > .session-panel-header.session-panel-header-needs-action {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 /* ── Session window unread marker (task.unread) ──
@@ -228,9 +228,9 @@
 }
 /* The card's own border/box-shadow transition fades this in and out. */
 .session-panel.session-panel-unread .session-panel-input .chat-input-box {
-  border-color: rgba(255, 59, 48, 0.6);
-  background-image: linear-gradient(rgba(255, 59, 48, 0.05), rgba(255, 59, 48, 0.05));
-  box-shadow: var(--glass-g4-shadow), 0 0 0 3px rgba(255, 59, 48, 0.14);
+  border-color: rgba(97, 92, 84, 0.6);
+  background-image: linear-gradient(rgba(97, 92, 84, 0.05), rgba(97, 92, 84, 0.05));
+  box-shadow: var(--glass-g4-shadow), 0 0 0 3px rgba(97, 92, 84, 0.14);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -504,7 +504,7 @@
 }
 /* A row that came after the list opened: "New" where a time would be. */
 .ask-walnut-drawer-item-time.is-new {
-  color: var(--accent-text, var(--accent));
+  color: var(--accent-text);
   font-weight: 500;
 }
 /* Status dot: the board's task-circle colours (globals), as a 7px disc. */
@@ -516,8 +516,8 @@
   background: currentColor;
   color: var(--fg-muted);
 }
-.ask-walnut-drawer-dot.task-circle-session { color: var(--accent); }
-.ask-walnut-drawer-dot.task-circle-running { color: var(--accent); animation: ask-walnut-pulse 1.4s ease-in-out infinite; }
+.ask-walnut-drawer-dot.task-circle-session { color: var(--fg); }
+.ask-walnut-drawer-dot.task-circle-running { color: var(--fg); animation: ask-walnut-pulse 1.4s ease-in-out infinite; }
 .ask-walnut-drawer-dot.task-circle-done { color: var(--success); }
 .ask-walnut-drawer-dot.task-circle-todo { color: var(--fg-muted); }
 @keyframes ask-walnut-pulse {
@@ -637,7 +637,7 @@
 }
 .ask-walnut-pending-error {
   margin: 0;
-  color: var(--color-error, #ff3b30);
+  color: var(--color-error, #615C54);
 }
 .ask-walnut-pending-actions {
   display: flex;
