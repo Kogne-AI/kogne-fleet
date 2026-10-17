@@ -10,6 +10,7 @@ import { useShowPriority } from '@/hooks/useShowPriority';
 import { useProjectRegistry } from '@/hooks/useProjectRegistry';
 import { SmartTaskCreation } from './SmartTaskCreation';
 import { useSerialSave, type OnSave } from './GeneralSection';
+import { TELL_ASK_FLEET } from '@/brand/ask-fleet-copy';
 
 interface Props {
   config: Config;
@@ -176,13 +177,13 @@ export function TasksSection({ config, onSave, onReload }: Props) {
           triggered by a session turn; no summarizer agent runs. */}
       <SettingsGroup heading="After a session finishes" data-testid="tasks-after-session">
         <SettingsRow
-          label="Tell Ask Walnut"
+          label={TELL_ASK_FLEET}
           help="The task summary always updates; this only decides whether chat hears about it."
           error={notify.error}
           control={
             <SegmentedControl<TriageNotifyMode>
               id="triage-notify-mode"
-              aria-label="Tell Ask Walnut"
+              aria-label={TELL_ASK_FLEET}
               value={notify.value}
               options={NOTIFY_OPTIONS}
               onChange={notify.set}

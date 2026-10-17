@@ -103,7 +103,7 @@ export function Sidebar({
   const [chatVisible, setChatVisible] = useState<boolean>(
     () => readHomeChatVisible(localStorage)
   );
-  // The Ask Walnut toggle itself: absent until the chat spot has been opened once
+  // The Ask Fleet toggle itself: absent until the chat spot has been opened once
   // (home-panel-flags.ts). Flips on the first open and never back within a load.
   const [chatToggleShown, setChatToggleShown] = useState<boolean>(
     () => showHomeChatToggle(localStorage, readHomeChatVisible(localStorage))
@@ -176,11 +176,11 @@ export function Sidebar({
         <button
           className={`sidebar-link sidebar-panel-toggle${chatVisible ? ' active' : ''}`}
           onClick={handleToggleChat}
-          aria-label="Ask Walnut"
-          title={collapsed ? 'Ask Walnut' : undefined}
+          aria-label="Ask Fleet"
+          title={collapsed ? 'Ask Fleet' : undefined}
         >
           <ChatBubbleIcon />
-          <span className="sidebar-label">Ask Walnut</span>
+          <span className="sidebar-label">Ask Fleet</span>
         </button>
       )}
       <button

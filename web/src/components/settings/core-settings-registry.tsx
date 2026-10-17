@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { TELL_ASK_FLEET } from '@/brand/ask-fleet-copy'
 import type { Config } from '@open-walnut/core'
 import { AdvancedSection } from './sections/AdvancedSection'
 import { AudioCaptureSection } from './sections/AudioCaptureSection'
@@ -125,7 +126,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
       { word: 'default priority', rowLabel: 'Default priority', anchor: 'settings-priority' },
       { word: 'default project', rowLabel: 'Default project', anchor: 'settings-project' },
       'quick add', 'smart', 'jev', 'api key', 'pin', 'triage',
-      { word: 'notify', rowLabel: 'Tell Ask Walnut', anchor: 'triage-notify-mode' },
+      { word: 'notify', rowLabel: TELL_ASK_FLEET, anchor: 'triage-notify-mode' },
       'summary', 'debounce',
       { word: 'jev model', rowLabel: 'Jev model', anchor: 'jev-model' },
     ],
