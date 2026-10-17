@@ -75,6 +75,7 @@ import { useStoreTask, useTasksContextSafe } from '@/contexts/TasksContext';
 import '@/styles/walnut-agent.css';
 import { COMPOSER_INSERT_EVENT, type ComposerInsertDetail } from '@/utils/composer-insert';
 import { repairHint, type WalnutRepairTarget } from '@/pages/repair-target';
+import { FleetSymbol } from '@/brand/fleet-mark';
 
 const PLACEHOLDER = 'What should this session do?';
 const HINT = 'Nothing runs yet: send to start, or save it as a todo.';
@@ -708,7 +709,7 @@ export function DraftSessionPanel({
                   onClick={() => { if (!isWalnut) { onWalnutToggle?.(draft.id, true); focusComposer(); } }}
                 >
                   <span className="draft-intent-ic" aria-hidden="true">
-                    <img src="/walnut-icon.png" alt="" className="draft-intent-walnut-mark" />
+                    <FleetSymbol />
                   </span>
                   <span className="draft-intent-t">Ask Walnut</span>
                   <span className="draft-intent-d">

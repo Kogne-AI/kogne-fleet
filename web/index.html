@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/walnut-icon.png" />
-    <title>Open Walnut</title>
+    <link rel="icon" type="image/svg+xml" href="/fleet-symbol-light.svg" />
+    <title>Fleet</title>
     <script>
       (function() {
         var t = 'system';
         try { t = localStorage.getItem('open-walnut-theme') || 'system'; } catch(e) {}
+        var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
         if (t === 'dark') document.documentElement.dataset.theme = 'dark';
         else if (t === 'light') document.documentElement.dataset.theme = 'light';
+        var icon = document.querySelector('link[rel="icon"]');
+        if (icon) icon.setAttribute('href', dark ? '/fleet-symbol-dark.svg' : '/fleet-symbol-light.svg');
       })();
       (function() {
         var origFetch = window.fetch;

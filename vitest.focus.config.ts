@@ -40,7 +40,7 @@ const config = mergeConfig(
 );
 
 // Overwritten, not merged — mergeConfig concatenates arrays (see vitest.unit.config.ts).
-config.test!.include = ['tests/**/*.test.ts'];
+config.test!.include = ['tests/**/*.test.ts', 'tests/**/*.test.tsx'];
 config.test!.exclude = [
   '**/*.live.test.ts',
   // Cannot resolve under a repo-root config; run `npm run test:frontend:ci`.

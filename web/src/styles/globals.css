@@ -337,13 +337,22 @@ select {
   color: var(--fg);
 }
 
-.sidebar-open-walnut-icon {
-  width: 22px;
-  height: 22px;
+/* Horizontal logo at the artboard size: 84×31, symbol reading at 22 px. Not a 22 px square. */
+.sidebar-fleet-logo {
+  width: 84px;
+  height: 31px;
   flex-shrink: 0;
-  vertical-align: -4px;
-  display: inline-block;
-  border-radius: 4px;
+  display: block;
+}
+
+/* One mark per theme. Element + class beats a single class elsewhere in the console. */
+img.fleet-mark-dark { display: none; }
+:root[data-theme="dark"] img.fleet-mark-light { display: none; }
+:root[data-theme="dark"] img.fleet-mark-dark { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) img.fleet-mark-light { display: none; }
+  :root:not([data-theme]) img.fleet-mark-dark { display: block; }
 }
 
 .sidebar-nav {
@@ -427,7 +436,8 @@ select {
   padding: 6px;
   border-radius: var(--radius-sm);
   background: transparent;
-  color: var(--fg-muted);
+  /* Header strokes follow the text color: ink on paper, clay on the dark header. */
+  color: var(--fg);
   border: none;
   cursor: pointer;
   flex-shrink: 0;
