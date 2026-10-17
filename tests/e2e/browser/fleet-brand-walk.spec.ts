@@ -59,6 +59,22 @@ test('a person sees Fleet, Ask Fleet, and the dark header', async ({ browser, ba
   await expect(panel.getByPlaceholder('Ask Fleet anything…')).toBeVisible()
   await beat(page, '04-ask-fleet-placeholder')
 
+  const created = await page.request.post('/api/tasks', {
+    data: { title: 'Brand hint task', source: 'local', project: '' },
+  })
+  expect(created.ok()).toBe(true)
+  const taskId = ((await created.json()) as { task: { id: string } }).task.id
+  const row = page.locator(`#home-task-navigation [data-task-id="${taskId}"]`).first()
+  await expect(row).toBeVisible({ timeout: 20_000 })
+  await row.hover()
+  await row.locator('.task-start-btn').click()
+  const bound = page.locator('.draft-session-panel').filter({ has: page.locator('.draft-bound-task') })
+  await bound.getByRole('button', { name: /Ask Fleet/ }).click()
+  await expect(bound.locator('.draft-quick-hint')).toHaveText(
+    'Ask Fleet about this task: type what you need, or send with nothing typed to use its title.',
+  )
+  await beat(page, '04b-bound-hint')
+
   await page.getByTestId('sidebar-core-app-settings').click()
   await expect(page.getByRole('heading', { name: 'Settings', exact: true })).toBeVisible({ timeout: 30_000 })
   await page.getByTestId('settings-filter').fill('Tell Ask Fleet')
@@ -67,8 +83,12 @@ test('a person sees Fleet, Ask Fleet, and the dark header', async ({ browser, ba
   await beat(page, '05-tell-ask-fleet')
   await page.getByTestId('settings-filter').fill('')
   await page.getByTestId('settings-nav-devices').click()
-  await expect(page.getByText('You can also tell Ask Fleet: “set up my cloud companion”.')).toBeVisible()
+  const cloud = page.getByText('You can also tell Ask Fleet: “set up my cloud companion”.')
+  await cloud.scrollIntoViewIfNeeded()
+  await expect(cloud).toBeVisible()
   await beat(page, '06-cloud-sentence')
+  const selected = page.getByTestId('settings-nav-devices')
+  await expect.poll(async () => selected.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgb(97, 92, 84)')
 
   await page.getByTestId('settings-nav-general').click()
   await page.locator('#settings-focus-bar').click()

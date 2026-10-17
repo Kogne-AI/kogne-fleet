@@ -565,7 +565,7 @@ test('C63: Tasks rows, the after-session group and the triage label in General',
   const after = tasks.getByTestId('tasks-after-session')
   await expect(after).toContainText('After a session finishes')
   await expect(after.locator('#triage-notify-mode[role="radiogroup"] [role="radio"]')).toHaveCount(3)
-  await expect(row(after, 'Tell Ask Walnut')).toBeVisible()
+  await expect(row(after, 'Tell Ask Fleet')).toBeVisible()
   await expect(row(after, 'Wait before summarizing')).toBeVisible()
   expect(await tasks.innerText()).not.toContain('Default engine')
 

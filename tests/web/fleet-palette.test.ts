@@ -163,6 +163,10 @@ const OLD_HUES = [
 describe('settings and board marks', () => {
   it('paints the custom tier and the leftover marks from the six colors', () => {
     const theme = globals.toLowerCase()
+    const nav = readFileSync(new URL('web/src/styles/settings-nav.css', root), 'utf8').toLowerCase()
+    expect(nav).toContain('--settings-nav-selected-bg: #615c54')
+    expect(nav).not.toContain('#0064d2')
+    expect(nav).not.toContain('#0a5fc8')
     expect(globals).toContain('.cal-rail-tier-custom { background: var(--tier-custom)')
     expect(theme).not.toContain('#8b5cf6')
     expect(theme).not.toContain('#ff6b00')
