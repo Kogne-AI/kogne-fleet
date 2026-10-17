@@ -144,3 +144,28 @@ describe('Fleet palette', () => {
     }
   })
 })
+
+/** Settings icons, the activity chart, and board status marks use the six Fleet colors. */
+const PAINTED = [
+  'web/src/components/settings/core-settings-registry.tsx',
+  'web/src/components/settings/SettingsNav.tsx',
+  'web/src/components/settings/settings-icons.tsx',
+  'web/src/components/settings/sections/TimelineSection.tsx',
+  'web/src/components/board/board-runtime.css.ts',
+]
+const OLD_HUES = [
+  '#007aff', '#0a84ff', '#34c759', '#ff9500', '#ff3b30', '#5856d6', '#5e5ce6',
+  '#30b0c7', '#5ac8fa', '#af52de', '#ff2d55', '#a2845e', '#ff6b6b', '#64748b',
+  '#b45309', '#e0a35a', '#d93025', '#2f6feb', '#15803d', '#d97706',
+  '#636366', '#8e8e93', '#6e6e73', '#1e1e2e', '#cdd6f4',
+]
+
+describe('settings and board marks', () => {
+  it('keeps only the six Fleet colors', () => {
+    for (const rel of PAINTED) {
+      const text = readFileSync(new URL(rel, root), 'utf8').toLowerCase()
+      for (const hex of OLD_HUES) expect(text, `${rel} still has ${hex}`).not.toContain(hex)
+      expect(text, rel).toContain('#615c54')
+    }
+  })
+})

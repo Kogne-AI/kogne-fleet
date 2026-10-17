@@ -15,18 +15,18 @@ import { ChevronGlyph } from '../settings-glyphs';
 import '@/styles/settings-sections-addons.css';
 import { usageDay } from './UsageTables';
 
-// Category colors (data colours of the activity chart, not UI chrome).
+// Activity chart colors. Each one is ink, muted, or orange.
 
 const CATEGORY_COLORS: Record<string, string> = {
-  coding: '#007AFF',
-  browsing: '#FF9500',
-  communication: '#34C759',
-  reading: '#5856D6',
-  writing: '#AF52DE',
-  meeting: '#FF2D55',
-  media: '#FF3B30',
-  idle: '#8E8E93',
-  other: '#636366',
+  coding: '#F45B25',
+  browsing: '#12100C',
+  communication: '#615C54',
+  reading: '#F45B25',
+  writing: '#12100C',
+  meeting: '#615C54',
+  media: '#F45B25',
+  idle: '#12100C',
+  other: '#615C54',
 };
 
 function getCategoryColor(cat: string): string {
@@ -84,7 +84,7 @@ function CategoryBar({ entries }: { entries: TimelineEntry[] }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#fff',
+            color: '#F6F5F3',
             fontSize: 11,
             fontWeight: 600,
             overflow: 'hidden',

@@ -77,7 +77,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // the Settings entry is gone. Re-add the row here to bring it back.
   {
     owner: 'walnut', id: 'hooks', label: 'Hooks', title: 'Hooks', group: 'manage',
-    icon: 'bolt', tint: '#FF9500',
+    icon: 'bolt', tint: '#615C54',
     description: 'What Walnut runs on its own when sessions, tasks and schedules change.',
     keywords: ['automation', 'builtin', 'lifecycle', 'cron', 'daemon policy', 'rename', 'summary', 'auto title'],
     render: () => <HooksSection />,
@@ -92,14 +92,14 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // the eye did not expect. Keep this entry directly after the Manage sections.
   {
     owner: 'walnut', id: 'plugin-store', label: 'Plugins', title: 'Plugins', group: 'plugins',
-    icon: 'puzzle-piece', tint: '#34C759',
+    icon: 'puzzle-piece', tint: '#615C54',
     description: 'Every plugin on this Mac, with its setup and updates.',
     keywords: ['install', 'update', 'mail', 'slack', 'to-do', 'sync', 'app', 'sidebar', 'configure'],
     render: ({ config, saveSection }) => <PluginStoreSection config={config} onSave={saveSection} />,
   },
   {
     owner: 'walnut', id: 'general', label: 'General', title: 'General', group: 'configure',
-    icon: 'gear', tint: '#8E8E93',
+    icon: 'gear', tint: '#615C54',
     description: 'Appearance, window layout and what shows up in chat.',
     keywords: [
       { word: 'theme', rowLabel: 'Appearance', anchor: 'settings-theme' },
@@ -118,7 +118,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // renders right under it and shares the nav entry; `#focus-tiers` still works.
   {
     owner: 'walnut', id: 'tasks', label: 'Tasks', title: 'Tasks', group: 'configure',
-    icon: 'checklist', tint: '#007AFF',
+    icon: 'checklist', tint: '#F45B25',
     description: 'Where new tasks land and how Walnut fills in their details.',
     keywords: [
       'project', 'inbox', 'priority',
@@ -134,7 +134,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   },
   {
     owner: 'walnut', id: 'focus-tiers', label: 'Focus Tiers', title: 'Focus Tiers', group: 'configure', navHidden: true,
-    icon: 'layers', tint: '#007AFF',
+    icon: 'layers', tint: '#F45B25',
     description: 'The tiers pinned tasks are sorted into.',
     keywords: ['focus tiers', 'tier', 'pinned'],
     render: () => <FocusTiersSection />,
@@ -142,14 +142,14 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // Tags: how tags show on tasks. Folded under Tasks with Focus Tiers (`#tags` still works).
   {
     owner: 'walnut', id: 'tags', label: 'Tags', title: 'Tags', group: 'configure', navHidden: true,
-    icon: 'checklist', tint: '#AF52DE',
+    icon: 'checklist', tint: '#615C54',
     description: 'How tags show on tasks, and what they open.',
     keywords: ['tags', 'tag', 'hide tag', 'show tag', 'tag value', 'key', 'namespace', 'pill', 'tag link', 'link', 'url'],
     render: () => <TagsSection />,
   },
   {
     owner: 'walnut', id: 'sessions', label: 'Sessions', title: 'Sessions', group: 'configure',
-    icon: 'two-speech-bubbles', tint: '#5856D6',
+    icon: 'two-speech-bubbles', tint: '#615C54',
     description: 'How sessions run, time out and ask before acting.',
     keywords: [
       { word: 'idle timeout', rowLabel: 'Idle timeout', anchor: 'idle-timeout' },
@@ -169,7 +169,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // engine for new sessions); the rest of the section writes the engines' own files.
   {
     owner: 'walnut', id: 'engines', label: 'Engines', title: 'Engines', group: 'configure',
-    icon: 'cpu-chip', tint: '#AF52DE',
+    icon: 'cpu-chip', tint: '#615C54',
     description: "The coding agents' own settings on the host your sessions run on.",
     keywords: [
       'claude code', 'codex',
@@ -184,21 +184,21 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // Voice = both directions: dictation in (STT) and read-aloud out (TTS).
   {
     owner: 'walnut', id: 'stt', label: 'Voice', title: 'Voice', group: 'configure',
-    icon: 'waveform', tint: '#FF2D55',
+    icon: 'waveform', tint: '#615C54',
     description: 'Dictation in and read aloud out.',
     keywords: ['speech', 'transcription', 'microphone', 'dictate', 'read aloud', 'tts', 'stt', 'whisper'],
     render: ({ config, saveSection, reload }) => <SttSection config={config} onSave={saveSection} onReload={reload} />,
   },
   {
     owner: 'walnut', id: 'audio-capture', label: 'Audio Capture', title: 'Audio Capture', group: 'configure',
-    icon: 'microphone', tint: '#FF9500',
+    icon: 'microphone', tint: '#615C54',
     description: 'Recording audio on this Mac for transcripts.',
     keywords: ['record', 'meeting', 'system audio', 'capture'],
     render: ({ config, saveSection }) => <AudioCaptureSection config={config} onSave={saveSection} />,
   },
   {
     owner: 'walnut', id: 'integrations', label: 'Integrations', title: 'Integrations', group: 'configure',
-    icon: 'plug', tint: '#30B0C7',
+    icon: 'plug', tint: '#F45B25',
     description: "Keys for the agent's own tools.",
     keywords: ['token', 'bot', 'web search', 'key', 'tool',
       { word: 'slack', rowLabel: 'Slack bot for the agent', anchor: 'slack-token' }],
@@ -209,21 +209,21 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // permission-prompt settings.
   {
     owner: 'walnut', id: 'calendar', label: 'Calendar Accounts', title: 'Calendar Accounts', group: 'configure',
-    icon: 'calendar-page', tint: '#FF3B30',
+    icon: 'calendar-page', tint: '#615C54',
     description: 'Which Mac calendars show in Walnut; edits write back through macOS.',
     keywords: ['events', 'icloud', 'google', 'exchange', 'internet accounts', 'refresh'],
     render: () => <CalendarSection />,
   },
   {
     owner: 'walnut', id: 'permissions', label: 'macOS Access', title: 'macOS Access', group: 'configure',
-    icon: 'hand-raised', tint: '#007AFF',
+    icon: 'hand-raised', tint: '#F45B25',
     description: 'What macOS allows Walnut to do on this Mac.',
     keywords: ['privacy', 'accessibility', 'screen recording', 'full disk', 'automation', 'tcc'],
     render: () => <PermissionsSection />,
   },
   {
     owner: 'walnut', id: 'heartbeat', label: 'Heartbeat', title: 'Heartbeat', group: 'configure',
-    icon: 'heart-pulse', tint: '#FF6B6B',
+    icon: 'heart-pulse', tint: '#615C54',
     description: 'A regular check-in where Walnut works through your checklist.',
     keywords: [
       { word: 'interval', rowLabel: 'Interval', anchor: 'hb-every' },
@@ -236,7 +236,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // reader who just set the heartbeat's clock asks about this one next.
   {
     owner: 'walnut', id: 'triage', label: 'Inbox Triage', title: 'Inbox Triage', group: 'configure',
-    icon: 'tray', tint: '#007AFF',
+    icon: 'tray', tint: '#F45B25',
     description: 'Walnut reads new mail and messages and sorts out what needs you.',
     keywords: [
       'mail', 'slack', 'inbox', 'assist', 'mark read', 'interval',
@@ -249,21 +249,21 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // section says so itself (`This panel is from Mail, which is off.`).
   {
     owner: 'walnut', id: 'mail-rules', label: 'Mail rules', title: 'Mail rules', group: 'configure',
-    icon: 'filter', tint: '#5AC8FA',
+    icon: 'filter', tint: '#F45B25',
     description: 'Sorts your inbox into Important and groups with rules you control.',
     keywords: ['mail', 'inbox', 'group', 'sort', 'rules', 'important', 'notifications', 'newsletters'],
     render: () => <MailRulesSection />,
   },
   {
     owner: 'walnut', id: 'search', label: 'Search', title: 'Search', group: 'configure',
-    icon: 'magnifier', tint: '#636366',
+    icon: 'magnifier', tint: '#615C54',
     description: 'What search results show.',
     keywords: ['index', 'exclude', 'folders', 'notes'],
     render: ({ config, saveSection }) => <SearchSection config={config} onSave={saveSection} />,
   },
   {
     owner: 'walnut', id: 'backup', label: 'S3 Backup', title: 'S3 Backup', group: 'configure',
-    icon: 'archive-box', tint: '#34C759',
+    icon: 'archive-box', tint: '#615C54',
     description: 'Scheduled copies of your Walnut data to an S3 bucket.',
     keywords: ['s3', 'bucket', 'region', 'prefix', 'aws', 'profile', 'access key'],
     render: ({ config, saveSection }) => <BackupSection config={config} onSave={saveSection} />,
@@ -272,7 +272,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // nav entry ("Phones & Cloud"); SSH hosts for remote sessions are their own.
   {
     owner: 'walnut', id: 'devices', label: 'Phones & Cloud', title: 'Phones & Cloud', group: 'configure',
-    icon: 'phone', tint: '#5856D6',
+    icon: 'phone', tint: '#615C54',
     description: 'Phones paired with this Mac and the cloud companion they reach it through.',
     keywords: ['phone', 'iphone', 'pair',
       { word: 'qr code', rowLabel: 'Device name', anchor: 'devices-new-name' },
@@ -282,21 +282,21 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   },
   {
     owner: 'walnut', id: 'cloud', label: 'Cloud Companion', title: 'Cloud Companion', group: 'configure', navHidden: true,
-    icon: 'cloud', tint: '#5856D6',
+    icon: 'cloud', tint: '#615C54',
     description: 'The cloud relay your phones reach this Mac through.',
     keywords: ['cloud', 'companion', 'bridge'],
     render: () => <CloudSection />,
   },
   {
     owner: 'walnut', id: 'remote-hosts', label: 'Remote Hosts', title: 'Remote Hosts', group: 'configure',
-    icon: 'server-stack', tint: '#64748B',
+    icon: 'server-stack', tint: '#615C54',
     description: 'SSH hosts that run sessions on another machine.',
     keywords: ['ssh', 'host', 'dev box', 'daemon', 'remote'],
     render: ({ config, saveSection }) => <RemoteHostsSection config={config} onSave={saveSection} />,
   },
   {
     owner: 'walnut', id: 'advanced', label: 'Advanced', title: 'Advanced', group: 'configure',
-    icon: 'sliders', tint: '#8E8E93',
+    icon: 'sliders', tint: '#615C54',
     description: 'Git versioning, command safety, subagents and developer options.',
     keywords: [
       'git', 'commit', 'push', 'exec', 'timeout', 'subagent',
@@ -314,7 +314,7 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // those jobs faster. The `#providers` anchor (setup banner) expands it.
   {
     owner: 'walnut', id: 'providers', label: 'API Provider', title: 'Use an API instead of Claude Code', group: 'configure', navHidden: true,
-    icon: 'key', tint: '#8E8E93',
+    icon: 'key', tint: '#615C54',
     description: "An API for Walnut's small background jobs instead of Claude Code.",
     keywords: ['api provider', 'bedrock', 'anthropic', 'openrouter', 'api model', 'api'],
     render: ({ config, saveSection }) => <ProvidersSection config={config} onSave={saveSection} />,
@@ -322,14 +322,14 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // Diagnostics: read-mostly panels about what Walnut did, not knobs.
   {
     owner: 'walnut', id: 'usage', label: 'Usage & Costs', title: 'Usage & Costs', group: 'diagnostics',
-    icon: 'bar-chart', tint: '#34C759',
+    icon: 'bar-chart', tint: '#615C54',
     description: "What Walnut's model calls cost, by day and by feature.",
     keywords: ['cost', 'tokens', 'spend', 'price'],
     render: () => <UsageSection />,
   },
   {
     owner: 'walnut', id: 'suggest-accuracy', label: 'Suggestion Accuracy', title: 'Suggestion Accuracy', group: 'diagnostics',
-    icon: 'target', tint: '#FF9500',
+    icon: 'target', tint: '#615C54',
     description: "How often a new session's draft guesses its project and folder right.",
     keywords: ['suggestion', 'accuracy', 'quick add', 'guesses'],
     render: () => <SuggestAccuracySection />,
@@ -345,14 +345,14 @@ export const CORE_SETTINGS_CONTRIBUTIONS: readonly CoreSettingsContribution[] = 
   // "Screen Tracking" so it stops reading as a third Time/Timeline thing.
   {
     owner: 'walnut', id: 'timeline', label: 'Screen Tracking', title: 'Screen Tracking', group: 'diagnostics',
-    icon: 'display', tint: '#30B0C7',
+    icon: 'display', tint: '#F45B25',
     description: 'Screen activity tracking and how it is categorized.',
     keywords: ['screen time', 'screenshots', 'life tracker', 'categories'],
     render: () => <TimelineSection />,
   },
   {
     owner: 'walnut', id: 'bug-report', label: 'Bug Report', title: 'Bug Report', group: 'diagnostics',
-    icon: 'ladybug', tint: '#FF3B30',
+    icon: 'ladybug', tint: '#615C54',
     description: 'Collect logs and details for a bug report.',
     keywords: ['bug', 'logs', 'diagnostics', 'feedback'],
     render: () => <BugReportSection />,
