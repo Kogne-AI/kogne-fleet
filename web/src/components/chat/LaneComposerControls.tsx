@@ -191,8 +191,8 @@ export function LaneComposerControls({ sessionId, engine = 'claude', onProviderS
           <span
             className="session-detail-context-pct"
             style={{
-              color: contextPercent > 80 ? 'var(--danger, #ff3b30)'
-                : contextPercent > 50 ? 'var(--warning, #ff9500)'
+              color: contextPercent > 80 ? 'var(--danger, #615C54)'
+                : contextPercent > 50 ? 'var(--warning, #615C54)'
                 : 'var(--fg-muted)',
             }}
             title={contextBadgeTitle(badgeUsage, contextPercent)}

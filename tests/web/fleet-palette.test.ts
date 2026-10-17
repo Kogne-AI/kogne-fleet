@@ -161,6 +161,23 @@ const OLD_HUES = [
 ]
 
 describe('settings and board marks', () => {
+  it('paints the custom tier and the leftover marks from the six colors', () => {
+    const theme = globals.toLowerCase()
+    expect(globals).toContain('.cal-rail-tier-custom { background: var(--tier-custom)')
+    expect(theme).not.toContain('#8b5cf6')
+    expect(theme).not.toContain('#ff6b00')
+    expect(theme).not.toContain('#e68a00')
+    expect(theme).not.toContain('#2ea84f')
+    const board = readFileSync(new URL('web/src/components/board/board-runtime.css.ts', root), 'utf8')
+    expect(board).not.toContain('rgba(21,128,61')
+    expect(board).not.toContain('rgba(217,48,37')
+    expect(ask).toContain('.draft-intent-card-walnut.is-active .draft-intent-t { color: var(--fg); }')
+    const chart = readFileSync(new URL('web/src/components/settings/sections/TimelineSection.tsx', root), 'utf8')
+    expect(chart).not.toContain("browsing: '#12100C'")
+    expect(chart).not.toContain("writing: '#12100C'")
+    expect(chart).not.toContain("idle: '#12100C'")
+  })
+
   it('keeps only the six Fleet colors', () => {
     for (const rel of PAINTED) {
       const text = readFileSync(new URL(rel, root), 'utf8').toLowerCase()

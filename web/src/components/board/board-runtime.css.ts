@@ -220,7 +220,7 @@ walnut-check[data-read]:hover { opacity: 1; }
 .wn-choice-label { flex: 1 1 auto; min-width: 0; }
 .wn-choice-rec {
   flex: none; align-self: center; padding: 0 7px; border-radius: 999px; font-size: .75em; font-weight: 600; line-height: 1.6;
-  background: rgba(21,128,61,.13); color: var(--wn-done, #615C54);
+  background: rgba(97,92,84,.14); color: var(--wn-done, #615C54);
 }
 .wn-choice-opt.wn-on .wn-choice-rec { background: rgba(255,255,255,.25); color: inherit; }
 /* The user's own words on a choice: their message bubble, as in a thread. */
@@ -306,7 +306,7 @@ walnut-thread[data-reminder="due"], walnut-choice[data-reminder="due"] {
 /* ── A project section updated since the user last saw it ── */
 .wn-updated {
   display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%;
-  background: var(--wn-need, #615C54); vertical-align: middle; box-shadow: 0 0 0 2px rgba(217,48,37,.18);
+  background: var(--wn-need, #615C54); vertical-align: middle; box-shadow: 0 0 0 2px rgba(97,92,84,.18);
 }
 .wn-updated.wn-corner { float: left; margin: .5em 6px 0 0; }
 `;

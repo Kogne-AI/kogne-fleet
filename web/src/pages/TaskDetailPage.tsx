@@ -421,7 +421,7 @@ function TaskDetailView({ id, isPopout = false, showOperationError }: TaskDetail
         <button className="btn btn-primary" onClick={handleComplete}>
           {task.status === 'done' ? 'Reopen' : 'Complete'}
         </button>
-        <button className="btn" onClick={handleDelete} style={{ color: 'var(--danger, #ff3b30)' }}>
+        <button className="btn" onClick={handleDelete} style={{ color: 'var(--danger, #615C54)' }}>
           Delete
         </button>
       </div>
@@ -476,7 +476,7 @@ function TaskDetailView({ id, isPopout = false, showOperationError }: TaskDetail
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               {task.resolved_dependencies?.map((dep) => (
                 <div key={dep.id} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', padding: '4px 8px', borderRadius: '4px', background: 'var(--bg-secondary)' }}>
-                  <span style={{ color: dep.phase === 'COMPLETE' ? '#34c759' : '#f59e0b' }}>
+                  <span style={{ color: dep.phase === 'COMPLETE' ? '#615C54' : '#f59e0b' }}>
                     {dep.phase === 'COMPLETE' ? '\u2713' : '\u25CB'}
                   </span>
                   <span
@@ -543,8 +543,8 @@ function TaskDetailView({ id, isPopout = false, showOperationError }: TaskDetail
             >
               <span style={{
                 width: 8, height: 8, borderRadius: '50%', flexShrink: 0,
-                background: parent.status === 'done' ? '#34c759'
-                  : parent.phase === 'IN_PROGRESS' ? '#007aff'
+                background: parent.status === 'done' ? '#615C54'
+                  : parent.phase === 'IN_PROGRESS' ? '#615C54'
                   : parent.phase === 'NEED_ACTION' ? 'var(--error)'
                   : 'var(--text-secondary)',
               }} />
@@ -578,8 +578,8 @@ function TaskDetailView({ id, isPopout = false, showOperationError }: TaskDetail
               >
                 <span style={{
                   width: 8, height: 8, borderRadius: '50%', flexShrink: 0,
-                  background: child.status === 'done' ? '#34c759'
-                    : child.phase === 'IN_PROGRESS' ? '#007aff'
+                  background: child.status === 'done' ? '#615C54'
+                    : child.phase === 'IN_PROGRESS' ? '#615C54'
                     : child.phase === 'NEED_ACTION' ? 'var(--error)'
                     : 'var(--text-secondary)',
                   opacity: child.status === 'done' ? 0.6 : 1,

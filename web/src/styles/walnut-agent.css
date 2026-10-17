@@ -93,7 +93,7 @@
   background: color-mix(in srgb, var(--walnut-accent) 7%, var(--bg));
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--walnut-accent) 14%, transparent);
 }
-.draft-intent-card-walnut.is-active .draft-intent-t { color: var(--walnut-accent); }
+.draft-intent-card-walnut.is-active .draft-intent-t { color: var(--fg); }
 .draft-intent-card-walnut:focus-visible {
   outline-color: color-mix(in srgb, var(--walnut-accent) 60%, transparent);
 }

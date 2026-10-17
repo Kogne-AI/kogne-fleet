@@ -107,9 +107,9 @@ export function freshLauncherMeta(): QuickStartTaskMeta {
 // Keep in sync with TaskKebabMenu's TIER_COLORS: wait is amber (paused/blocked) —
 // a grey wait was indistinguishable from Satellite's grey at a glance.
 export const TIER_COLORS: Record<FocusTier, string> = {
-  focus: 'var(--accent)',
-  satellite: 'var(--tier-satellite, #5856d6)',
-  wait: 'var(--tier-wait, #ff9f0a)',
+  focus: 'var(--tier-focus, #615C54)',
+  satellite: 'var(--tier-satellite, #615C54)',
+  wait: 'var(--tier-wait, #615C54)',
 };
 
 /** Tier → color with a fallback for custom tier ids (all customs share one hue). */

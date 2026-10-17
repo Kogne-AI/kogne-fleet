@@ -48,7 +48,7 @@ describe('tier chip', () => {
     expect(c.label).toBe('Satellite');
     expect(c.ai).toBe(true);
     expect(c.source).toBe('ai');
-    expect(c.glyph).toEqual({ kind: 'tier', tier: 'satellite', color: 'var(--tier-satellite, #5856d6)' });
+    expect(c.glyph).toEqual({ kind: 'tier', tier: 'satellite', color: 'var(--tier-satellite, #615C54)' });
     expect(c.title).toBe('Pinned tier: Satellite. Set by Walnut from your text. Click to change.');
     expect(c.ariaLabel).toBe(c.title);
   });

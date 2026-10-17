@@ -122,7 +122,7 @@
 .draft-workspace-input:focus { outline: none; border-color: var(--accent); }
 .draft-workspace-note { font-size: 11px; color: var(--fg-muted); }
 .draft-workspace-note.is-warn { color: var(--color-warning, #b26a00); }
-.draft-workspace-note.is-error { color: var(--color-error, #ff3b30); }
+.draft-workspace-note.is-error { color: var(--color-error, #615C54); }
 
 /* ── Task row pill ── */
 .workspace-pill {
@@ -138,7 +138,7 @@
 .workspace-pill-ok { color: var(--accent); }
 .workspace-pill-busy { color: var(--fg-muted); }
 .workspace-pill-warn { color: var(--color-warning, #b26a00); }
-.workspace-pill-error { color: var(--color-error, #ff3b30); }
+.workspace-pill-error { color: var(--color-error, #615C54); }
 .workspace-pill-spin {
   width: 8px;
   height: 8px;
@@ -162,7 +162,7 @@
 }
 .workspace-flyout-title { font-size: 12px; font-weight: 600; color: var(--fg); }
 .workspace-flyout-state { font-size: 11px; color: var(--fg-muted); white-space: nowrap; }
-.workspace-flyout-state.is-failed { color: var(--color-error, #ff3b30); }
+.workspace-flyout-state.is-failed { color: var(--color-error, #615C54); }
 .workspace-flyout-state.is-kept { color: var(--color-warning, #b26a00); }
 .workspace-flyout-state.is-ready { color: var(--accent); }
 .workspace-flyout-note {
@@ -172,7 +172,7 @@
   color: var(--fg-secondary);
   overflow-wrap: anywhere;
 }
-.workspace-flyout-note.is-error { color: var(--color-error, #ff3b30); }
+.workspace-flyout-note.is-error { color: var(--color-error, #615C54); }
 .workspace-flyout-note.is-warn { color: var(--color-warning, #b26a00); }
 .workspace-fact {
   display: grid;
@@ -204,4 +204,4 @@
   font-family: inherit; font-size: 12px; word-break: normal; overflow-wrap: anywhere; max-width: 420px;
 }
 .workspace-preparing-panel .workspace-preparing-progress { color: var(--fg-secondary); }
-.workspace-preparing-panel .workspace-preparing-error { color: var(--color-error, #ff3b30); white-space: pre-wrap; }
+.workspace-preparing-panel .workspace-preparing-error { color: var(--color-error, #615C54); white-space: pre-wrap; }

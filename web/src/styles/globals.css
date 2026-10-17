@@ -1318,9 +1318,9 @@ img.fleet-mark-dark { display: none; }
 .badge-phase-todo { background: var(--bg-tertiary); color: var(--fg-muted); }
 .badge-phase-in_progress { background: rgba(244, 91, 37, 0.12); color: var(--fg); }
 .badge-phase-need_action { background: rgba(97, 92, 84, 0.12); color: var(--error); }
-.badge-phase-waiting { background: rgba(139, 92, 246, 0.14); color: var(--phase-waiting, #8b5cf6); }
+.badge-phase-waiting { background: rgba(97, 92, 84, 0.12); color: #615C54; }
 .badge-phase-wait { background: rgba(97, 92, 84, 0.12); color: var(--error); }
-.badge-phase-human_verification { background: rgba(255, 107, 0, 0.12); color: #FF6B00; }
+.badge-phase-human_verification { background: rgba(97, 92, 84, 0.12); color: #615C54; }
 .badge-phase-peer_code_review { background: rgba(97, 92, 84, 0.12); color: #615C54; }
 .badge-phase-release_in_pipeline { background: rgba(97, 92, 84, 0.12); color: #615C54; }
 .badge-phase-complete { background: rgba(97, 92, 84, 0.12); color: var(--success); }
@@ -11199,7 +11199,7 @@ body.walnut-dragging {
 /* Tier icons (SVG, stroke-style: crosshair / planet+satellite / hourglass).
    Color IS the tier: Focus accent-blue, Satellite muted-grey,
    Wait amber (paused/blocked — the old grey half-circle read as Satellite). */
-.todo-tier-icon-focus { color: var(--tier-focus, var(--accent, #F45B25)); }
+.todo-tier-icon-focus { color: var(--tier-focus, #615C54); }
 .todo-tier-icon-satellite { color: var(--tier-satellite, var(--fg-muted)); }
 .todo-tier-icon-backlog { color: var(--tier-backlog, #615C54); }
 .todo-tier-icon-wait { color: var(--tier-wait, #615C54); }
@@ -16374,7 +16374,7 @@ a.task-kebab-info:hover {
 
 .agent-badge-config {
   background: rgba(97, 92, 84, 0.12);
-  color: #E68A00;
+  color: #615C54;
 }
 
 [data-theme="dark"] .agent-badge-config {
@@ -16389,23 +16389,23 @@ a.task-kebab-info:hover {
 
 .agent-badge-override {
   background: rgba(244, 91, 37, 0.12);
-  color: #F45B25;
+  color: #615C54;
 }
 
 [data-theme="dark"] .agent-badge-override {
-  color: #F45B25;
+  color: #615C54;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .agent-badge-override {
-    color: #F45B25;
+    color: #615C54;
   }
 }
 
 /* Console vs background kind badges (accent/green vs muted grey). */
 .agent-badge-console {
   background: rgba(97, 92, 84, 0.14);
-  color: #2EA84F;
+  color: #615C54;
 }
 
 [data-theme="dark"] .agent-badge-console {
@@ -29959,11 +29959,11 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
   border-radius: 50%;
   background: var(--fg-muted);
 }
-.cal-rail-tier-focus { background: var(--tier-focus, var(--accent)); }
+.cal-rail-tier-focus { background: var(--tier-focus, #615C54); }
 .cal-rail-tier-satellite { background: var(--tier-satellite, var(--fg-muted)); }
 .cal-rail-tier-backlog { background: var(--tier-backlog); }
 .cal-rail-tier-wait { background: var(--tier-wait); }
-.cal-rail-tier-custom { background: var(--accent-subtle, var(--accent)); border: 1px solid var(--accent); box-sizing: border-box; }
+.cal-rail-tier-custom { background: var(--tier-custom); border: 1px solid var(--border); box-sizing: border-box; }
 
 .cal-rail-row {
   cursor: grab;

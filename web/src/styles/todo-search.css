@@ -14,13 +14,13 @@
 /* A long custom tier name stops at 120px so the project still shows. */
 .todo-search-tier-pill {
   flex: none; max-width: 120px; overflow: hidden; text-overflow: ellipsis; padding: 0 6px; border-radius: 8px; font-size: 10.5px; font-weight: 500; line-height: 16px; white-space: nowrap;
-  --pill-tier: var(--tier-custom, #af52de);
+  --pill-tier: var(--tier-custom, #615C54);
   color: var(--pill-tier); background: color-mix(in srgb, var(--pill-tier) 13%, transparent);
 }
-.todo-search-tier-focus { --pill-tier: var(--tier-focus, var(--accent, #007aff)); }
-.todo-search-tier-satellite { --pill-tier: var(--tier-satellite, #5856d6); }
-.todo-search-tier-backlog { --pill-tier: var(--tier-backlog, #30b0c7); }
-.todo-search-tier-wait { --pill-tier: var(--tier-wait, #ff9f0a); }
+.todo-search-tier-focus { --pill-tier: var(--tier-focus, #615C54); }
+.todo-search-tier-satellite { --pill-tier: var(--tier-satellite, #615C54); }
+.todo-search-tier-backlog { --pill-tier: var(--tier-backlog, #615C54); }
+.todo-search-tier-wait { --pill-tier: var(--tier-wait, #615C54); }
 
 /* "Completed (N) ›" and "Related (N) ›": hits that wait behind one heading-style row. */
 .todo-search-fold-toggle {

@@ -134,7 +134,7 @@ export function PendingSessionPanel({ cwd, host, hostLabel, label, message, real
                   {hostDisplayLabel(host, undefined, hostLabel)}
                 </span>
               )}
-              <span className="session-panel-badge" style={{ color: 'var(--color-error, #ff3b30)' }}>Failed</span>
+              <span className="session-panel-badge" style={{ color: 'var(--color-error, #615C54)' }}>Failed</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '2px', flexShrink: 0 }}>
               <button className="session-panel-close" onClick={onClose} title="Close panel">&times;</button>
@@ -146,7 +146,7 @@ export function PendingSessionPanel({ cwd, host, hostLabel, label, message, real
         <div className="pending-session-body">
           <div className="pending-session-error-icon">!</div>
           <div className="pending-session-info">
-            <span className="pending-session-label" style={{ color: 'var(--color-error, #ff3b30)' }}>
+            <span className="pending-session-label" style={{ color: 'var(--color-error, #615C54)' }}>
               {errorMessage}
             </span>
             <span className="pending-session-path" style={{ marginTop: 4 }}>
@@ -194,7 +194,7 @@ export function PendingSessionPanel({ cwd, host, hostLabel, label, message, real
               </span>
             )}
             <span className="session-panel-badge" style={{
-              color: phase === 'slow' ? 'var(--color-warning, #ff9500)' : 'var(--fg-muted)',
+              color: phase === 'slow' ? 'var(--color-warning, #615C54)' : 'var(--fg-muted)',
             }}>{headerStatus}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '2px', flexShrink: 0 }}>
@@ -214,7 +214,7 @@ export function PendingSessionPanel({ cwd, host, hostLabel, label, message, real
         </div>
         <div className="pending-session-info">
           <span className="pending-session-label" style={{
-            color: phase === 'slow' ? 'var(--color-warning, #ff9500)' : undefined,
+            color: phase === 'slow' ? 'var(--color-warning, #615C54)' : undefined,
           }}>{statusLabel}</span>
           <span className="pending-session-path" title={cwd}>{cwd}</span>
         </div>

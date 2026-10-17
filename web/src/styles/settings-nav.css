@@ -239,19 +239,18 @@
   box-shadow: inset 0 0 0 1px var(--accent);
 }
 
-/* Selected row: a deeper blue than --accent so white 13px text passes 4.5:1
-   (C50: #007AFF gave 4.0:1 light, 3.65:1 dark). */
+/* Selected row: muted, the role a state gets when the palette has no other. */
 .settings-container {
-  --settings-nav-selected-bg: #0064d2;
+  --settings-nav-selected-bg: #615C54;
 }
 
 :root[data-theme='dark'] .settings-container {
-  --settings-nav-selected-bg: #0a5fc8;
+  --settings-nav-selected-bg: #615C54;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .settings-container {
-    --settings-nav-selected-bg: #0a5fc8;
+    --settings-nav-selected-bg: #615C54;
   }
 }
 

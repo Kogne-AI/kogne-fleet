@@ -82,9 +82,9 @@ export const TIER_OPTIONS: { value: FocusTier; label: string; icon: ReactNode }[
 // Parked (id `wait`) is amber (set aside): the old grey half-circle was
 // indistinguishable from Satellite's grey outline at a glance.
 export const TIER_COLORS: Record<FocusTier, string> = {
-  focus: 'var(--accent)',
-  satellite: 'var(--tier-satellite, #5856d6)',
-  wait: 'var(--tier-wait, #ff9f0a)',
+  focus: 'var(--tier-focus, #615C54)',
+  satellite: 'var(--tier-satellite, #615C54)',
+  wait: 'var(--tier-wait, #615C54)',
 };
 
 const PRIORITY_OPTIONS: { value: TaskPriority; icon: string; label: string }[] = [

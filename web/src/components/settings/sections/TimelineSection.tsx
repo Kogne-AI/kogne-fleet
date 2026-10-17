@@ -19,13 +19,13 @@ import { usageDay } from './UsageTables';
 
 const CATEGORY_COLORS: Record<string, string> = {
   coding: '#F45B25',
-  browsing: '#12100C',
+  browsing: '#615C54',
   communication: '#615C54',
   reading: '#F45B25',
-  writing: '#12100C',
+  writing: '#615C54',
   meeting: '#615C54',
   media: '#F45B25',
-  idle: '#12100C',
+  idle: '#615C54',
   other: '#615C54',
 };
 
