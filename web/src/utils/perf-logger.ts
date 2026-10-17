@@ -66,7 +66,7 @@ function summary(): void {
   const maxEnd = Math.max(...sorted.map(m => m.start + m.duration), 1);
   const barWidth = 40;
 
-  console.group('%c⏱ Walnut Page Load Waterfall', 'font-weight:bold; color:#007AFF');
+  console.group('%c⏱ Walnut Page Load Waterfall', 'font-weight:bold; color:#615C54');
   console.log(`Total measures: ${sorted.length} | Page age: ${Math.round(performance.now() - t0)}ms`);
   console.log('');
 

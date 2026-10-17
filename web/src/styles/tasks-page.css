@@ -19,8 +19,8 @@
   font-size: 13px;
   background: var(--bg);
   --tp-row-border: color-mix(in srgb, var(--border) 55%, transparent);
-  --tp-p0: #ff3b30;
-  --tp-p1: #ff9500;
+  --tp-p0: #615C54;
+  --tp-p1: #615C54;
   --tp-p2: #c7c7cc;
 }
 

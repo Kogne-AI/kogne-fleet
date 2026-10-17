@@ -11,6 +11,7 @@ import type { ImageAttachment } from '@/api/chat';
 import type { UseFocusBarReturn } from '@/hooks/useFocusBar';
 import { useTasksContext } from '@/contexts/TasksContext';
 import { ICON_CHAT } from '@/components/common/Icons';
+import { DockVisibleLabel } from './dock-visible-label';
 import { readHomeChatVisible, showHomeChatToggle } from '@/pages/home-panel-flags';
 import { useSessionStatus } from '@/hooks/useSessionStatus';
 import { useDragGesture } from '@/hooks/useDragGesture';
@@ -203,13 +204,13 @@ const ChatDockItem = memo(function ChatDockItem({ isActive }: ChatDockItemProps)
       role="button"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); emitDockActivateChat(); } }}
-      title="Ask Walnut"
-      aria-label="Ask Walnut"
+      title="Ask Fleet"
+      aria-label="Ask Fleet"
     >
       <span className="dock-chat-icon">{ICON_CHAT}</span>
       {/* The dock cell is 56px wide, so the label is the short form; the title
           attribute carries the full name. */}
-      <span className="dock-chat-label">Walnut</span>
+      <DockVisibleLabel />
       {isActive && <span className="dock-chat-active-dot" />}
     </div>
   );

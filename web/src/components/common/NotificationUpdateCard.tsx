@@ -47,7 +47,7 @@ export function NotificationUpdateCard({ status, checking, onCheck }: {
     <div className="notification-card ok" data-testid="nfc-update" data-state={v.tone}>
       <div className="notification-card-row">
         <span className={`notification-card-icon ${v.tone === 'update' ? 'update' : v.tone === 'ok' ? 'ok' : ''}`}>{v.icon}</span>
-        <span className="notification-card-label">Open Walnut</span>
+        <span className="notification-card-label">Fleet</span>
         {v.canCheck && (
           <span className="nfc-update-action">
             <StableButton label={busy ? CHECK_LABELS[1]! : CHECK_LABELS[0]!} labels={CHECK_LABELS} onClick={onCheck}

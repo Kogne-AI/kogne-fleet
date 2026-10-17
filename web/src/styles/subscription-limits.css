@@ -65,7 +65,7 @@
 
 .subscription-limit-row.is-rejected .subscription-limit-value,
 .subscription-limit-overage.is-rejected {
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
 }
 
 .subscription-limit-overage.is-warning {
@@ -92,5 +92,5 @@
 }
 
 .composer-limit-hint.is-rejected {
-  background: var(--danger, #ff3b30);
+  background: var(--danger, #615C54);
 }

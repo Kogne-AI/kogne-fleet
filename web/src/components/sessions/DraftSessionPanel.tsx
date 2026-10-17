@@ -75,14 +75,21 @@ import { useStoreTask, useTasksContextSafe } from '@/contexts/TasksContext';
 import '@/styles/walnut-agent.css';
 import { COMPOSER_INSERT_EVENT, type ComposerInsertDetail } from '@/utils/composer-insert';
 import { repairHint, type WalnutRepairTarget } from '@/pages/repair-target';
+import { FleetSymbol } from '@/brand/fleet-mark';
+import {
+  ASK_FLEET,
+  ASK_FLEET_BOUND_CARD,
+  ASK_FLEET_BOUND_HINT,
+  ASK_FLEET_PLACEHOLDER,
+  ASK_FLEET_UNBOUND_CARD,
+  askLabel,
+} from '@/brand/ask-fleet-copy';
 
 const PLACEHOLDER = 'What should this session do?';
 const HINT = 'Nothing runs yet: send to start, or save it as a todo.';
 const BOUND_HINT = 'Start a session on this task: type the first instruction, or send with nothing typed to use its title.';
-const BOUND_WALNUT_HINT = 'Ask Walnut about this task: type what you need, or send with nothing typed to use its title.';
 const FORK_HINT = 'Forks the source conversation into a sibling session: type where it should go next, or send with nothing typed to just branch.';
 const FORK_PLACEHOLDER = 'Message for the forked session (optional)';
-const WALNUT_PLACEHOLDER = 'Ask Walnut anything…';
 /** "Customize Walnut" (the repair draft): the guidance the old chat-anchored repair bar carried. The draft
  *  otherwise looks exactly like an ordinary new session, so nothing would tell the
  *  user their sentence is about to be read as a bug report. */
@@ -388,7 +395,7 @@ export function DraftSessionPanel({
   // launch shape, its own name in the header/placeholder, and the Walnut seeds
   // (tasks, schedule) give way to the agent's own description.
   const askAgent = isWalnut && draft.agent && draft.agent.id !== GENERAL_AGENT_ID ? draft.agent : null;
-  const askLabel = askAgent ? `Ask ${askAgent.name}` : 'Ask Walnut';
+  const askLabelText = askLabel(askAgent?.name);
   // "Customize Walnut": pre-armed on Walnut's own checkout with the repair intent. No
   // mode fork: an Ask Walnut launch has no cwd and would drop the repair.
   const isRepair = draft.intent === 'fix-walnut';
@@ -640,7 +647,7 @@ export function DraftSessionPanel({
               {/* A plain draft makes a task (its "Save as todo" makes nothing else), so
                   it says so; a BOUND draft adds a session to an existing task and
                   creates none, so it keeps "New Session" beside its "for:" line. */}
-              {isFork ? 'Fork Session' : isRepair ? 'Customize Walnut' : isWalnut ? askLabel : isBound ? 'New Session' : 'New task'}
+              {isFork ? 'Fork Session' : isRepair ? 'Customize Walnut' : isWalnut ? askLabelText : isBound ? 'New Session' : 'New task'}
             </span>
             <span className="session-panel-badge" style={{ color: 'var(--fg-muted)' }}>Draft</span>
             {isBound && (
@@ -708,13 +715,11 @@ export function DraftSessionPanel({
                   onClick={() => { if (!isWalnut) { onWalnutToggle?.(draft.id, true); focusComposer(); } }}
                 >
                   <span className="draft-intent-ic" aria-hidden="true">
-                    <img src="/walnut-icon.png" alt="" className="draft-intent-walnut-mark" />
+                    <FleetSymbol />
                   </span>
-                  <span className="draft-intent-t">Ask Walnut</span>
+                  <span className="draft-intent-t">{ASK_FLEET}</span>
                   <span className="draft-intent-d">
-                    {isBound
-                      ? 'Hand this task to Walnut: plan it, research it, or organize it.'
-                      : 'Search tasks, find notes, schedule your day, quick questions, etc.'}
+                    {isBound ? ASK_FLEET_BOUND_CARD : ASK_FLEET_UNBOUND_CARD}
                   </span>
                 </button>
               </div>
@@ -725,7 +730,7 @@ export function DraftSessionPanel({
             {/* The bound task keeps its one-line "what Start does" under the
                 cards — the cards say which agent, this says what gets sent. */}
             {isBound && (
-              <div className="draft-quick-hint">{isWalnut ? BOUND_WALNUT_HINT : BOUND_HINT}</div>
+              <div className="draft-quick-hint">{isWalnut ? ASK_FLEET_BOUND_HINT : BOUND_HINT}</div>
             )}
             {askAgent && (
               <p className="draft-agent-desc" data-testid="draft-agent-desc">
@@ -828,7 +833,7 @@ export function DraftSessionPanel({
               : isBound
                 ? 'Start the session on this task (an empty message sends the task title)'
                 : isWalnut
-                  ? askLabel
+                  ? askLabelText
                   : 'Start the session'}
           // Only offered where the parse actually runs. A fork has nothing to
           // guess at, Ask Walnut has no launch pills, and a column with no
@@ -852,7 +857,7 @@ export function DraftSessionPanel({
           draftKey={draftComposerKey(draft.id)}
           placeholder={isFork ? FORK_PLACEHOLDER
             : isRepair ? REPAIR_PLACEHOLDER
-              : askAgent ? `${askLabel} anything…` : isWalnut ? WALNUT_PLACEHOLDER : PLACEHOLDER}
+              : askAgent ? `${askLabelText} anything…` : isWalnut ? ASK_FLEET_PLACEHOLDER : PLACEHOLDER}
           prefillText={prefill.text}
           prefillNonce={prefill.nonce}
           showCommands={false}

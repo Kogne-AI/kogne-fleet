@@ -41,13 +41,13 @@ export const NAV_GROUP_LABELS: Readonly<Record<NavGroup, string>> = {
 export const PLUGIN_COUNT_KEY = 'walnut.settings.nav.pluginCount'
 
 /** Tint for a settings-placed plugin app tile (its own icon on top). */
-const APP_TINT = '#30B0C7'
+const APP_TINT = '#F45B25'
 
 const MANAGE_PAGES: ReadonlyArray<{ id: string; to: string; label: string; glyph: SettingsGlyphName; tint: string }> = [
-  { id: 'agents', to: '/agents', label: 'Agents', glyph: 'two-person', tint: '#5856D6' },
-  { id: 'skills', to: '/skills', label: 'Skills', glyph: 'sparkles', tint: '#AF52DE' },
-  { id: 'commands', to: '/commands', label: 'Commands', glyph: 'slash-in-square', tint: '#636366' },
-  { id: 'memory', to: '/memory', label: 'Memory', glyph: 'bookmark-stack', tint: '#FF2D55' },
+  { id: 'agents', to: '/agents', label: 'Agents', glyph: 'two-person', tint: '#615C54' },
+  { id: 'skills', to: '/skills', label: 'Skills', glyph: 'sparkles', tint: '#615C54' },
+  { id: 'commands', to: '/commands', label: 'Commands', glyph: 'slash-in-square', tint: '#615C54' },
+  { id: 'memory', to: '/memory', label: 'Memory', glyph: 'bookmark-stack', tint: '#615C54' },
 ]
 
 export interface NavRow {

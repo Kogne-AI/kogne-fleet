@@ -2,40 +2,40 @@
 
 :root {
   /* Light mode (default) */
-  --bg: #FFFFFF;
-  --bg-secondary: #F5F5F7;
-  --bg-tertiary: #E8E8ED;
-  --fg: #1D1D1F;
-  --fg-secondary: #424245;
-  --fg-muted: #86868B;
-  --accent: #007AFF;
-  --accent-hover: #0066D6;
-  --accent-subtle: rgba(0, 122, 255, 0.08);
+  --bg: #F6F5F3;
+  --bg-secondary: #D7D2C8;
+  --bg-tertiary: #D7D2C8;
+  --fg: #12100C;
+  --fg-secondary: #615C54;
+  --fg-muted: #615C54;
+  --accent: #F45B25;
+  --accent-hover: #F45B25;
+  --accent-subtle: rgba(244, 91, 37, 0.08);
   /* Text-safe twins for SMALL TEXT on the secondary card: the fill colours above measure
      3.7:1 (accent) and 2.0:1 (amber) against #F5F5F7, under WCAG's 4.5:1; these clear it
      (5.4:1 and 5.2:1). Dark surfaces do not need them, there the twins equal the originals. */
-  --accent-text: #0060CC;
-  --priority-important-text: #9E5300;
+  --accent-text: #12100C;
+  --priority-important-text: #615C54;
   /* Virtual-group cluster outline — soft accent, strong enough to read as one box
      but never competing with a task's own status background. */
-  --group-outline: rgba(0, 122, 255, 0.32);
+  --group-outline: rgba(244, 91, 37, 0.32);
   /* iOS-style hairline separators (UIColor.separator family). */
-  --border: rgba(60, 60, 67, 0.12);
-  --border-strong: rgba(60, 60, 67, 0.18);
-  --card-bg: #FFFFFF;
+  --border: #CFCABF;
+  --border-strong: #CFCABF;
+  --card-bg: #F6F5F3;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   /* iOS shadow softness: low alpha, large blur. */
   --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-  --success: #34C759;
-  --warning: #FF9500;
-  --error: #FF3B30;
-  --priority-immediate: #FF3B30;
-  --priority-important: #FF9500;
-  --priority-backlog: #34C759;
+  --success: #615C54;
+  --warning: #615C54;
+  --error: #615C54;
+  --priority-immediate: #615C54;
+  --priority-important: #615C54;
+  --priority-backlog: #615C54;
   /* Legacy aliases */
-  --priority-high: #FF3B30;
-  --priority-medium: #FF9500;
-  --priority-low: #34C759;
+  --priority-high: #615C54;
+  --priority-medium: #615C54;
+  --priority-low: #615C54;
   --sidebar-width: 240px;
   /* Code/monospace stack — GitHub's, so diffs & code blocks read crisply (and
      never fall back to Courier serif on machines without Consolas). */
@@ -43,28 +43,28 @@
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --heartbeat: #FF6B6B;
+  --heartbeat: #615C54;
   --overlay-bg: rgba(0, 0, 0, 0.3);
   --bg-hover: rgba(0, 0, 0, 0.04);
-  --bg-elevated: #FFFFFF;
+  --bg-elevated: #F6F5F3;
 
   /* Entity ref colors — task=blue (accent), session=purple */
-  --session-ref: #5856D6;
-  --session-ref-subtle: rgba(88, 86, 214, 0.08);
-  --session-ref-subtle-hover: rgba(88, 86, 214, 0.16);
+  --session-ref: #615C54;
+  --session-ref-subtle: rgba(97, 92, 84, 0.08);
+  --session-ref-subtle-hover: rgba(97, 92, 84, 0.16);
 
   /* Focus-tier colors (crosshair / satellite / hourglass icons) */
-  --tier-focus: var(--accent);
+  --tier-focus: #615C54;
   /* Satellite = iOS indigo. Was --fg-muted grey ("neutral bucket"), but as the
      BIGGEST tier that made the whole tab read as colorless (user report
      2026-08-11). Shares the session-ref indigo family — acceptable: session
      refs are text pills in chat, tier marks are icons in the task strip. */
-  --tier-satellite: #5856D6;
-  --tier-backlog: #30B0C7; /* iOS teal — "stored, cool", between satellite indigo and wait amber */
-  --tier-wait: #FF9F0A;
+  --tier-satellite: #615C54;
+  --tier-backlog: #615C54; /* iOS teal — "stored, cool", between satellite indigo and wait amber */
+  --tier-wait: #615C54;
   /* All user-defined tiers share one hue (iOS system purple — distinct from
      accent blue, satellite indigo, backlog teal, wait amber). */
-  --tier-custom: #AF52DE;
+  --tier-custom: #615C54;
 
   /* iOS material helpers — translucent chrome recipe shared by all glass
      surfaces (sidebar, dock, popovers). Solid fallback via @supports below. */
@@ -83,7 +83,7 @@
      Tint matches --bg exactly (pure white): any darker tint (250,250,252 was
      tried) renders as a visible grey slab with a hard edge where the wash
      meets the untouched white page around it. */
-  --glass-g4-bg: rgba(255, 255, 255, 0.88);
+  --glass-g4-bg: color-mix(in srgb, var(--bg) 88%, transparent);
   --glass-g4-blur: blur(44px) saturate(1.8);
   --glass-g4-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   /* Distance over which a scroll-under glass wash dissolves into the content
@@ -97,69 +97,69 @@
 :root[data-theme="dark"] { color-scheme: dark; }
 
 :root[data-theme="dark"] {
-  --bg: #000000;
-  --bg-secondary: #1C1C1E;
-  --bg-tertiary: #2C2C2E;
-  --fg: #F5F5F7;
-  --fg-secondary: #D1D1D6;
-  --fg-muted: #8E8E93;
-  --accent: #0A84FF;
-  --accent-hover: #409CFF;
-  --accent-subtle: rgba(10, 132, 255, 0.12);
-  --accent-text: var(--accent);
-  --priority-important-text: var(--priority-important);
+  --bg: #12100C;
+  --bg-secondary: #12100C;
+  --bg-tertiary: #12100C;
+  --fg: #D7D2C8;
+  --fg-secondary: #615C54;
+  --fg-muted: #615C54;
+  --accent: #F45B25;
+  --accent-hover: #F45B25;
+  --accent-subtle: rgba(244, 91, 37, 0.12);
+  --accent-text: #D7D2C8;
+  --priority-important-text: #615C54;
   /* Brighter on dark so the thin cluster outline stays visible on near-black cards. */
-  --group-outline: rgba(10, 132, 255, 0.45);
+  --group-outline: rgba(244, 91, 37, 0.45);
   /* iOS dark separators (UIColor.separator dark family) — hairlines that stay
-     visible on the #000/#1C1C1E surfaces without reading as boxes. */
-  --border: rgba(84, 84, 88, 0.42);
-  --border-strong: rgba(84, 84, 88, 0.6);
-  --card-bg: #1C1C1E;
+     visible on the #000/#12100C surfaces without reading as boxes. */
+  --border: #CFCABF;
+  --border-strong: #CFCABF;
+  --card-bg: #12100C;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
-  --heartbeat: #FF8787;
+  --heartbeat: #615C54;
   --overlay-bg: rgba(0, 0, 0, 0.5);
   --bg-hover: rgba(255, 255, 255, 0.06);
-  --bg-elevated: #2C2C2E;
-  --session-ref: #5E5CE6;
-  --session-ref-subtle: rgba(94, 92, 230, 0.12);
-  --session-ref-subtle-hover: rgba(94, 92, 230, 0.24);
-  --tier-satellite: #5E5CE6;
-  --tier-backlog: #40C8E0;
-  --tier-wait: #FFB340;
-  --tier-custom: #BF5AF2;
-  /* G4 dark = translucent #1C1C1E (bg-secondary), same blur + opacity floor. */
+  --bg-elevated: #12100C;
+  --session-ref: #615C54;
+  --session-ref-subtle: rgba(97, 92, 84, 0.12);
+  --session-ref-subtle-hover: rgba(97, 92, 84, 0.24);
+  --tier-satellite: #615C54;
+  --tier-backlog: #615C54;
+  --tier-wait: #615C54;
+  --tier-custom: #615C54;
+  /* G4 dark = translucent #12100C (bg-secondary), same blur + opacity floor. */
   --glass-g4-bg: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
   --glass-g4-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --bg: #000000;
-    --bg-secondary: #1C1C1E;
-    --bg-tertiary: #2C2C2E;
-    --fg: #F5F5F7;
-    --fg-secondary: #D1D1D6;
-    --fg-muted: #8E8E93;
-    --accent: #0A84FF;
-    --accent-hover: #409CFF;
-    --accent-subtle: rgba(10, 132, 255, 0.12);
-    --accent-text: var(--accent);
-    --priority-important-text: var(--priority-important);
-    --group-outline: rgba(10, 132, 255, 0.45);
-    --border: rgba(84, 84, 88, 0.42);
-    --border-strong: rgba(84, 84, 88, 0.6);
-    --card-bg: #1C1C1E;
+    --bg: #12100C;
+    --bg-secondary: #12100C;
+    --bg-tertiary: #12100C;
+    --fg: #D7D2C8;
+    --fg-secondary: #615C54;
+    --fg-muted: #615C54;
+    --accent: #F45B25;
+    --accent-hover: #F45B25;
+    --accent-subtle: rgba(244, 91, 37, 0.12);
+    --accent-text: #D7D2C8;
+    --priority-important-text: #615C54;
+    --group-outline: rgba(244, 91, 37, 0.45);
+    --border: #CFCABF;
+    --border-strong: #CFCABF;
+    --card-bg: #12100C;
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
-    --heartbeat: #FF8787;
+    --heartbeat: #615C54;
     --overlay-bg: rgba(0, 0, 0, 0.5);
     --bg-hover: rgba(255, 255, 255, 0.06);
-    --bg-elevated: #2C2C2E;
-    --tier-backlog: #40C8E0;
-    --tier-wait: #FFB340;
-    --tier-custom: #BF5AF2;
-    /* G4 dark = translucent #1C1C1E (bg-secondary), same blur + opacity floor. */
+    --bg-elevated: #12100C;
+    --tier-backlog: #615C54;
+    --tier-wait: #615C54;
+    --tier-custom: #615C54;
+    /* G4 dark = translucent #12100C (bg-secondary), same blur + opacity floor. */
     --glass-g4-bg: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
     --glass-g4-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   }
@@ -254,7 +254,7 @@ code, pre, .mono {
 }
 
 a {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
 }
 
@@ -337,13 +337,22 @@ select {
   color: var(--fg);
 }
 
-.sidebar-open-walnut-icon {
-  width: 22px;
-  height: 22px;
+/* Horizontal logo at the artboard size: 84×31, symbol reading at 22 px. Not a 22 px square. */
+.sidebar-fleet-logo {
+  width: 84px;
+  height: 31px;
   flex-shrink: 0;
-  vertical-align: -4px;
-  display: inline-block;
-  border-radius: 4px;
+  display: block;
+}
+
+/* One mark per theme. Element + class beats a single class elsewhere in the console. */
+img.fleet-mark-dark { display: none; }
+:root[data-theme="dark"] img.fleet-mark-light { display: none; }
+:root[data-theme="dark"] img.fleet-mark-dark { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) img.fleet-mark-light { display: none; }
+  :root:not([data-theme]) img.fleet-mark-dark { display: block; }
 }
 
 .sidebar-nav {
@@ -371,7 +380,7 @@ select {
 }
 
 .sidebar-link.active {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
   font-weight: 600;
 }
@@ -427,7 +436,8 @@ select {
   padding: 6px;
   border-radius: var(--radius-sm);
   background: transparent;
-  color: var(--fg-muted);
+  /* Header strokes follow the text color: ink on paper, clay on the dark header. */
+  color: var(--fg);
   border: none;
   cursor: pointer;
   flex-shrink: 0;
@@ -487,7 +497,7 @@ select {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ff3b30;
+  background: #615C54;
   border: 2px solid var(--bg-sidebar, var(--bg));
 }
 
@@ -506,7 +516,7 @@ select {
   padding: 0 4px;
   box-sizing: border-box;
   border-radius: 8px;
-  background: #ff3b30;
+  background: #615C54;
   border: 2px solid var(--bg-sidebar, var(--bg));
   color: #fff;
   font-size: 10px;
@@ -534,7 +544,7 @@ select {
 /* Bell flavour: amber "needs you" (asks + unread letters), never a red error
    count. Dark text — white on amber is unreadable at 10px. */
 .notification-badge-count.notification-badge-attention {
-  background: var(--tier-wait, #ff9f0a);
+  background: var(--tier-wait, #615C54);
   color: #3a2500;
 }
 
@@ -623,8 +633,8 @@ select {
 }
 
 .notification-card.warn {
-  border-color: #ff9500;
-  background: rgba(255, 149, 0, 0.05);
+  border-color: #615C54;
+  background: rgba(97, 92, 84, 0.05);
 }
 
 .notification-card.ok {
@@ -643,21 +653,21 @@ select {
 }
 
 .notification-card-icon.warn {
-  color: #ff9500;
+  color: #615C54;
 }
 
 .notification-card-icon.ok {
-  color: #34c759;
+  color: #615C54;
 }
 
 .notification-card-icon.error {
-  color: #ff3b30;
+  color: #615C54;
 }
 
 /* The Open Walnut card (NotificationUpdateCard): a published update is news, not a
    problem, so it takes the accent the rail dot uses, never the amber or red. */
 .notification-card-icon.update,
-.notification-detail-value.nfc-update-accent { color: var(--accent); }
+.notification-detail-value.nfc-update-accent { color: var(--fg); }
 .nfc-update-action { margin-left: auto; }
 .nfc-update-command-row { justify-content: flex-start; }
 .nfc-update-command { min-width: 0; }
@@ -665,7 +675,7 @@ select {
 .nfc-update-note { overflow-wrap: anywhere; }
 
 .notification-card-icon.pulsing {
-  color: #34c759;
+  color: #615C54;
   animation: notification-icon-pulse 1.5s infinite;
 }
 
@@ -695,11 +705,11 @@ select {
 }
 
 .notification-detail-row.warn {
-  color: #ff9500;
+  color: #615C54;
 }
 
 .notification-detail-row.error {
-  color: #ff3b30;
+  color: #615C54;
 }
 
 .notification-detail-row.muted {
@@ -712,11 +722,11 @@ select {
 }
 
 .notification-detail-value.ok {
-  color: #34c759;
+  color: #615C54;
 }
 
 .notification-detail-value.warn {
-  color: #ff9500;
+  color: #615C54;
 }
 
 /* Disconnected host label — previously only .notification-detail-row.muted
@@ -771,9 +781,9 @@ select {
 }
 
 .notification-feed-dot--info { background: var(--accent); }
-.notification-feed-dot--success { background: #34c759; }
-.notification-feed-dot--warning { background: #ff9500; }
-.notification-feed-dot--error { background: #ff3b30; }
+.notification-feed-dot--success { background: #615C54; }
+.notification-feed-dot--warning { background: #615C54; }
+.notification-feed-dot--error { background: #615C54; }
 
 .notification-feed-item-title {
   flex: 1;
@@ -843,7 +853,7 @@ select {
 .notification-clear-all {
   border: none;
   background: none;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
@@ -985,7 +995,7 @@ select {
 }
 
 .setup-step.done .setup-step-icon {
-  color: #34c759;
+  color: #615C54;
 }
 
 .setup-step.pending .setup-step-icon {
@@ -1057,7 +1067,7 @@ select {
 .setup-step-btn {
   font-size: 12px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
   background: none;
   border: 1px solid var(--accent);
   border-radius: var(--radius-sm);
@@ -1134,10 +1144,10 @@ select {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  border: 1px solid color-mix(in srgb, #34c759 35%, var(--border));
+  border: 1px solid color-mix(in srgb, #615C54 35%, var(--border));
   border-radius: var(--radius-sm);
   padding: 8px 10px;
-  background: color-mix(in srgb, #34c759 7%, var(--bg-secondary));
+  background: color-mix(in srgb, #615C54 7%, var(--bg-secondary));
 }
 
 .setup-usable-label {
@@ -1162,7 +1172,7 @@ select {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #fff;
-  background: #34c759;
+  background: #615C54;
   padding: 1px 6px;
   border-radius: var(--radius-sm);
   margin-right: 6px;
@@ -1174,8 +1184,8 @@ select {
   font-size: 12px;
   font-weight: 600;
   color: #fff;
-  background: #34c759;
-  border: 1px solid #34c759;
+  background: #615C54;
+  border: 1px solid #615C54;
   border-radius: var(--radius-sm);
   padding: 5px 12px;
   cursor: pointer;
@@ -1214,9 +1224,9 @@ select {
 }
 .install-btn:hover { filter: brightness(1.1); }
 .install-btn--installing { opacity: 0.7; cursor: wait; }
-.install-btn--success { background: none; color: var(--green, #34c759); border-color: var(--green, #34c759); cursor: default; font-weight: 600; }
-.install-btn--error { border-color: var(--red, #ff3b30); }
-.install-btn-error { font-size: 11px; color: var(--red, #ff3b30); }
+.install-btn--success { background: none; color: var(--green, #615C54); border-color: var(--green, #615C54); cursor: default; font-weight: 600; }
+.install-btn--error { border-color: var(--red, #615C54); }
+.install-btn-error { font-size: 11px; color: var(--red, #615C54); }
 .install-btn-spinner {
   display: inline-block; width: 12px; height: 12px; margin-right: 4px;
   border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
@@ -1228,7 +1238,7 @@ select {
 /* Error suggestion link — actionable hint below error banners */
 .error-suggestion { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 11px; color: var(--fg-secondary); flex-wrap: wrap; }
 .error-suggestion-text { min-width: 0; }
-.error-suggestion-link { color: var(--accent); font-weight: 500; cursor: pointer; background: none; border: none; padding: 0; font-size: 11px; white-space: nowrap; font-family: inherit; }
+.error-suggestion-link { color: var(--fg); font-weight: 500; cursor: pointer; background: none; border: none; padding: 0; font-size: 11px; white-space: nowrap; font-family: inherit; }
 .error-suggestion-link:hover { text-decoration: underline; }
 .error-suggestion-install { font-size: 10px; }
 
@@ -1292,35 +1302,35 @@ select {
   letter-spacing: 0;
 }
 
-.badge-immediate { background: rgba(255, 59, 48, 0.12); color: var(--priority-immediate); }
-.badge-important { background: rgba(255, 149, 0, 0.12); color: var(--priority-important); }
-.badge-backlog { background: rgba(52, 199, 89, 0.12); color: var(--priority-backlog); }
+.badge-immediate { background: rgba(97, 92, 84, 0.12); color: var(--priority-immediate); }
+.badge-important { background: rgba(97, 92, 84, 0.12); color: var(--priority-important); }
+.badge-backlog { background: rgba(97, 92, 84, 0.12); color: var(--priority-backlog); }
 /* Legacy priority badges */
-.badge-high { background: rgba(255, 59, 48, 0.12); color: var(--priority-high); }
-.badge-medium { background: rgba(255, 149, 0, 0.12); color: var(--priority-medium); }
-.badge-low { background: rgba(52, 199, 89, 0.12); color: var(--priority-low); }
+.badge-high { background: rgba(97, 92, 84, 0.12); color: var(--priority-high); }
+.badge-medium { background: rgba(97, 92, 84, 0.12); color: var(--priority-medium); }
+.badge-low { background: rgba(97, 92, 84, 0.12); color: var(--priority-low); }
 .badge-none { background: var(--bg-tertiary); color: var(--fg-muted); }
 .badge-todo { background: var(--bg-tertiary); color: var(--fg-muted); }
-.badge-done { background: rgba(52, 199, 89, 0.12); color: var(--success); }
+.badge-done { background: rgba(97, 92, 84, 0.12); color: var(--success); }
 
 /* Phase badge colors */
-.badge-phase-investigation { background: rgba(88, 86, 214, 0.12); color: #5856D6; }
+.badge-phase-investigation { background: rgba(97, 92, 84, 0.12); color: #615C54; }
 .badge-phase-todo { background: var(--bg-tertiary); color: var(--fg-muted); }
-.badge-phase-in_progress { background: rgba(0, 122, 255, 0.12); color: var(--accent); }
-.badge-phase-need_action { background: rgba(255, 59, 48, 0.12); color: var(--error); }
-.badge-phase-waiting { background: rgba(139, 92, 246, 0.14); color: var(--phase-waiting, #8b5cf6); }
-.badge-phase-wait { background: rgba(255, 59, 48, 0.12); color: var(--error); }
-.badge-phase-human_verification { background: rgba(255, 107, 0, 0.12); color: #FF6B00; }
-.badge-phase-peer_code_review { background: rgba(175, 82, 222, 0.12); color: #AF52DE; }
-.badge-phase-release_in_pipeline { background: rgba(48, 176, 199, 0.12); color: #30B0C7; }
-.badge-phase-complete { background: rgba(52, 199, 89, 0.12); color: var(--success); }
+.badge-phase-in_progress { background: rgba(244, 91, 37, 0.12); color: var(--fg); }
+.badge-phase-need_action { background: rgba(97, 92, 84, 0.12); color: var(--error); }
+.badge-phase-waiting { background: rgba(97, 92, 84, 0.12); color: #615C54; }
+.badge-phase-wait { background: rgba(97, 92, 84, 0.12); color: var(--error); }
+.badge-phase-human_verification { background: rgba(97, 92, 84, 0.12); color: #615C54; }
+.badge-phase-peer_code_review { background: rgba(97, 92, 84, 0.12); color: #615C54; }
+.badge-phase-release_in_pipeline { background: rgba(97, 92, 84, 0.12); color: #615C54; }
+.badge-phase-complete { background: rgba(97, 92, 84, 0.12); color: var(--success); }
 
 /* Task circle colors — deliberately session-driven, NOT phase-driven
    (2026-08-13 user request: the per-phase rainbow was unreadable).
    grey = plain task, blue = has a session attached, green = done.
    Compound selectors so they beat the .task-phase-icon-btn base color. */
 .task-phase-icon-btn.task-circle-todo, .task-quick-phase-btn.task-circle-todo { color: var(--fg-muted); }
-.task-phase-icon-btn.task-circle-session, .task-quick-phase-btn.task-circle-session { color: var(--accent); }
+.task-phase-icon-btn.task-circle-session, .task-quick-phase-btn.task-circle-session { color: var(--fg); }
 .task-phase-icon-btn.task-circle-done, .task-quick-phase-btn.task-circle-done { color: var(--success); }
 
 /* Inline phase icon (before title text) */
@@ -1366,7 +1376,7 @@ select {
 .phase-picker-item:hover { background: var(--accent-subtle); }
 .phase-picker-item.active { font-weight: 600; }
 .phase-picker-icon { width: 16px; text-align: center; font-size: 13px; flex-shrink: 0; }
-.phase-picker-check { margin-left: 2px; color: var(--accent); font-size: 10px; }
+.phase-picker-check { margin-left: 2px; color: var(--fg); font-size: 10px; }
 .phase-hook-indicator { margin-left: 4px; font-size: 11px; opacity: 0.7; cursor: help; }
 
 /* Priority picker dropdown */
@@ -1400,15 +1410,15 @@ select {
 .priority-picker-item:hover { background: var(--accent-subtle); }
 .priority-picker-item.active { font-weight: 600; }
 .priority-picker-icon { width: 22px; text-align: center; font-size: 12px; font-weight: 700; }
-.priority-picker-check { margin-left: auto; color: var(--accent); font-size: 12px; }
+.priority-picker-check { margin-left: auto; color: var(--fg); font-size: 12px; }
 
 /* Sprint pill in todo panel meta row */
 .todo-item-sprint-pill {
   font-size: 10px;
   padding: 1px 6px;
   border-radius: 8px;
-  background: rgba(0, 122, 255, 0.08);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.08);
+  color: var(--fg);
   white-space: nowrap;
 }
 
@@ -1579,7 +1589,7 @@ select {
 }
 
 .task-checkbox:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* ===== Phase Status Button (inside .task-action-btn pill) ===== */
@@ -1590,16 +1600,16 @@ select {
 }
 
 .task-status-todo:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .task-status-in_progress {
-  color: var(--accent);
+  color: var(--fg);
   font-size: 12px;
 }
 
 .task-status-in_progress:hover {
-  color: var(--accent);
+  color: var(--fg);
   opacity: 0.8;
 }
 
@@ -1657,7 +1667,7 @@ select {
 }
 
 .sync-unsynced {
-  background: #FF9500;
+  background: #615C54;
   color: #fff;
 }
 
@@ -1667,7 +1677,7 @@ select {
 }
 
 .sync-error {
-  background: #FF3B30;
+  background: #615C54;
   color: #fff;
 }
 
@@ -2008,7 +2018,7 @@ select {
 }
 
 .session-fork-btn-success {
-  background: var(--success, #34c759);
+  background: var(--success, #615C54);
 }
 
 .session-fork-wrapper {
@@ -2034,8 +2044,8 @@ select {
 }
 
 @media (prefers-color-scheme: dark) {
-  .session-fork-popover { background: #1c1c1e; }
-  .session-fork-input { background: #2c2c2e; }
+  .session-fork-popover { background: #12100C; }
+  .session-fork-input { background: #12100C; }
 }
 
 .session-fork-input {
@@ -2454,7 +2464,7 @@ select {
 }
 
 .session-detail-collapse-toggle:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .session-detail-collapse-arrow {
@@ -2557,7 +2567,7 @@ select {
    eat the whole row, so the label is shortened; the full URL stays in href+title
    and in the textarea you get when you click into the note. */
 .session-notes-preview .linkified-url {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
 }
@@ -2624,7 +2634,7 @@ select {
   text-overflow: ellipsis;
   white-space: nowrap;
   vertical-align: bottom;
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 8%, transparent);
   border-radius: 4px;
   padding: 0 3px;
@@ -2681,7 +2691,7 @@ select {
 }
 
 .user-messages-summary-toggle:hover:not(:disabled) {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .user-messages-summary-arrow {
@@ -2709,7 +2719,7 @@ select {
   max-height: 130px;
   overflow-y: auto;
   padding: 0 12px 8px;
-  border-left: 3px solid var(--accent, #007AFF);
+  border-left: 3px solid var(--accent, #F45B25);
   margin: 0 12px 0 16px;
 }
 
@@ -2822,7 +2832,7 @@ select {
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .scroll-to-bottom-btn {
     border-color: rgba(255, 255, 255, 0.15);
-    background: #2c2c2e;
+    background: #12100C;
     color: #aaa;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
@@ -2832,7 +2842,7 @@ select {
 }
 [data-theme="dark"] .scroll-to-bottom-btn {
   border-color: rgba(255, 255, 255, 0.15);
-  background: #2c2c2e;
+  background: #12100C;
   color: #aaa;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -2855,7 +2865,7 @@ select {
   z-index: 5;
   padding: 6px 12px;
   font-size: 12px;
-  color: var(--warning, #b45309);
+  color: var(--warning, #615C54);
   background: color-mix(in srgb, var(--warning, #f59e0b) 12%, var(--bg-primary, #fff));
   border: 1px solid color-mix(in srgb, var(--warning, #f59e0b) 35%, transparent);
   border-radius: 8px;
@@ -3004,7 +3014,7 @@ select {
 }
 
 .provenance-card[data-envelope-kind="trigger"] .provenance-glyph {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* An unidentified sender is not "a session" — don't paint it in session indigo. */
@@ -3097,7 +3107,7 @@ select {
 
 .provenance-chip-task {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .provenance-chip-task:hover {
@@ -3536,8 +3546,8 @@ select {
   gap: 8px;
   padding: 10px 14px;
   margin: 0 8px 4px;
-  background: color-mix(in srgb, var(--danger, #ff3b30) 8%, var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--danger, #ff3b30) 25%, transparent);
+  background: color-mix(in srgb, var(--danger, #615C54) 8%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--danger, #615C54) 25%, transparent);
   border-radius: 8px;
   font-size: 12px;
   line-height: 1.5;
@@ -3552,7 +3562,7 @@ select {
 }
 .session-error-banner-icon { font-size: 14px; flex-shrink: 0; line-height: 1.3; }
 .session-error-banner-text {
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
   font-family: var(--font-mono, 'SF Mono', 'Menlo', monospace);
   white-space: pre-wrap;
   word-break: break-word;
@@ -3598,7 +3608,7 @@ select {
 }
 .team-tab-bar-item:hover { color: var(--fg); }
 .team-tab-bar-item-active {
-  color: var(--accent);
+  color: var(--fg);
   border-bottom-color: var(--accent);
 }
 .team-tab-bar-count {
@@ -3669,7 +3679,7 @@ select {
   color: var(--fg);
 }
 .team-tab-active {
-  color: var(--accent);
+  color: var(--fg);
   border-bottom-color: var(--accent);
   font-weight: 500;
 }
@@ -3682,8 +3692,8 @@ select {
   font-size: 10px;
   line-height: 1;
 }
-.team-tab-dot-running { color: var(--accent); animation: session-pulse 1.4s ease-in-out infinite; }
-.team-tab-dot-done { color: #34c759; }
+.team-tab-dot-running { color: var(--fg); animation: session-pulse 1.4s ease-in-out infinite; }
+.team-tab-dot-done { color: #615C54; }
 .team-tab-dot-error { color: var(--warning); }
 .team-tab-dot-pending { font-size: 9px; }
 
@@ -3784,8 +3794,8 @@ select {
 .wf-card--bar:hover { background: var(--bg); border-color: var(--border-strong); }
 .wf-card--bar:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .wf-card-open { margin-left: auto; font-size: 11.5px; color: var(--fg-muted); white-space: nowrap; flex: none; }
-.wf-card--bar:hover .wf-card-open { color: var(--accent); }
-.wf-card-running { color: var(--accent); }
+.wf-card--bar:hover .wf-card-open { color: var(--fg); }
+.wf-card-running { color: var(--fg); }
 .wf-card-failed { color: var(--warning); }
 .wf-card-tokens { flex: none; font-size: 11px; color: var(--fg-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .wf-card--bar .wf-card-title { flex: none; }
@@ -3854,8 +3864,8 @@ select {
   overflow-y: auto;
 }
 .wf-task-dot { font-size: 10px; line-height: 1; flex: none; }
-.wf-task-dot-running { color: var(--accent); animation: session-pulse 1.4s ease-in-out infinite; }
-.wf-task-dot-done { color: #34c759; }
+.wf-task-dot-running { color: var(--fg); animation: session-pulse 1.4s ease-in-out infinite; }
+.wf-task-dot-done { color: #615C54; }
 .wf-task-dot-error { color: var(--warning); }
 .wf-task-dot-stopped { color: var(--fg-muted); }
 .wf-task-dot-paused { color: var(--fg-muted); }
@@ -3878,7 +3888,7 @@ select {
 .wf-script-toggle {
   margin-left: 8px;
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
   background: none;
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -3984,7 +3994,7 @@ select {
   margin-top: 2px;
   padding: 3px 8px;
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -4048,14 +4058,14 @@ select {
 .wf-stage-card-sub { color: var(--fg-muted); font-size: 11px; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .wf-stage-card-sub--failed { color: var(--warning); }
 .wf-stage-icon { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 14px; height: 14px; border-radius: 50%; font-size: 9.5px; font-weight: 700; line-height: 1; }
-.wf-stage-icon--done { color: #34c759; font-size: 12px; }
+.wf-stage-icon--done { color: #615C54; font-size: 12px; }
 .wf-stage-icon--failed { color: var(--bg); background: var(--warning); }
 .wf-stage-icon--running .task-group-streaming-dot { margin: 0; }
 .wf-stage-icon--waiting { width: 11px; height: 11px; border: 1.5px solid var(--accent); }
 .wf-stage-icon--future { width: 11px; height: 11px; border: 1.5px dashed var(--fg-muted); opacity: 0.7; }
 .wf-stage-meter { display: flex; height: 4px; overflow: hidden; border-radius: 2px; background: var(--border); }
 .wf-stage-meter > span { display: block; height: 100%; }
-.wf-stage-meter-done { background: #34c759; }
+.wf-stage-meter-done { background: #615C54; }
 .wf-stage-meter-failed { background: var(--warning); }
 .wf-stage-meter-running {
   background: repeating-linear-gradient(-45deg, var(--accent) 0 4px, color-mix(in srgb, var(--accent) 55%, var(--bg)) 4px 8px);
@@ -4090,13 +4100,13 @@ select {
   text-overflow: ellipsis;
   transform: translateY(-50%);
 }
-.wf-stage-link--stream .wf-stage-link-label, .wf-stage-link--loop .wf-stage-link-label { color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, var(--bg)); }
+.wf-stage-link--stream .wf-stage-link-label, .wf-stage-link--loop .wf-stage-link-label { color: var(--fg); background: color-mix(in srgb, var(--accent) 13%, var(--bg)); }
 .wf-stage-graph--strip { display: flex; flex-wrap: wrap; align-items: center; row-gap: 12px; padding: 12px 20px; }
 .wf-stage-graph--strip .wf-stage { display: flex; align-items: center; }
 .wf-stage-stack { display: flex; flex-direction: column; gap: 6px; width: 164px; }
 .wf-stage-link--h { display: flex; flex: none; flex-direction: column; align-items: center; gap: 2px; width: 84px; padding: 0 6px; }
 .wf-stage-link-verb { min-height: 13px; color: var(--fg); font-size: 11px; font-weight: 600; white-space: nowrap; }
-.wf-stage-link--stream .wf-stage-link-verb, .wf-stage-link--loop .wf-stage-link-verb { color: var(--accent); }
+.wf-stage-link--stream .wf-stage-link-verb, .wf-stage-link--loop .wf-stage-link-verb { color: var(--fg); }
 .wf-stage-link-arrow { width: 100%; height: 10px; overflow: visible; }
 .wf-stage-link-counts { min-height: 12px; color: var(--fg-muted); font-size: 10.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) {
@@ -4174,7 +4184,7 @@ select {
 .wf-modal-live {
   font-size: 9px;
   line-height: 1;
-  color: var(--accent);
+  color: var(--fg);
   flex: none;
   animation: session-pulse 1.4s ease-in-out infinite;
 }
@@ -4222,13 +4232,13 @@ select {
   font-size: 12px;
   text-align: left;
   color: var(--fg-secondary);
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.06));
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.06));
   border: 1px solid var(--border);
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-.bg-tasks-chip:hover { background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.12)); color: var(--fg); border-color: var(--fg-muted); }
+.bg-tasks-chip:hover { background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.12)); color: var(--fg); border-color: var(--fg-muted); }
 .bg-tasks-chip-icon {
   display: inline-flex;
   align-items: center;
@@ -4237,14 +4247,14 @@ select {
   flex-shrink: 0;
   font-size: 11px;
   line-height: 1;
-  color: var(--accent);
+  color: var(--fg);
 }
 .bg-tasks-chip-icon .task-group-streaming-dot { margin: 0; }
 .bg-tasks-chip-label {
   flex-shrink: 0;
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
   white-space: nowrap;
 }
 .bg-tasks-chip-desc {
@@ -4276,11 +4286,11 @@ select {
   color: var(--fg);
 }
 .bg-tasks-chip--stacked .bg-tasks-chip-meta { margin-left: auto; }
-.bg-tasks-chip--running { border-color: var(--accent-subtle-hover, rgba(0, 122, 255, 0.25)); }
-.bg-tasks-chip--running .bg-tasks-chip-status { color: var(--accent); }
-.bg-tasks-chip--done { background: rgba(52, 199, 89, 0.06); }
-.bg-tasks-chip--done:hover { background: rgba(52, 199, 89, 0.12); }
-.bg-tasks-chip--done .bg-tasks-chip-icon { color: var(--success, #34C759); }
+.bg-tasks-chip--running { border-color: var(--accent-subtle-hover, rgba(244, 91, 37, 0.25)); }
+.bg-tasks-chip--running .bg-tasks-chip-status { color: var(--fg); }
+.bg-tasks-chip--done { background: rgba(97, 92, 84, 0.06); }
+.bg-tasks-chip--done:hover { background: rgba(97, 92, 84, 0.12); }
+.bg-tasks-chip--done .bg-tasks-chip-icon { color: var(--success, #615C54); }
 .bg-tasks-chip--failed .bg-tasks-chip-icon,
 .bg-tasks-chip--failed .bg-tasks-chip-status { color: var(--error); }
 .bg-tasks-chip--idle .bg-tasks-chip-icon { color: var(--fg-muted); }
@@ -4386,7 +4396,7 @@ select {
 .bg-task-row--selected,
 .bg-task-row--selected:hover {
   border-color: var(--accent);
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.06));
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.06));
 }
 .bg-task-row-head {
   display: flex;
@@ -4434,7 +4444,7 @@ select {
 .bg-task-row--compact:hover { background: color-mix(in srgb, var(--fg) 4%, transparent); }
 .bg-task-row--compact.bg-task-row--selected,
 .bg-task-row--compact.bg-task-row--selected:hover {
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.06));
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.06));
   box-shadow: inset 2px 0 0 var(--accent);
 }
 .bg-task-row--compact .bg-task-row-name { flex: 1; }
@@ -4454,11 +4464,11 @@ select {
   font-size: 10px;
   font-family: 'SF Mono', 'Fira Code', monospace;
 }
-.bg-task-kind--command { background: rgba(255, 149, 0, 0.14); color: #B25E00; }
+.bg-task-kind--command { background: rgba(97, 92, 84, 0.14); color: #615C54; }
 .bg-task-kind--task { background: var(--bg-tertiary); color: var(--fg-muted); }
-[data-theme="dark"] .bg-task-kind--command { color: #FFB340; }
+[data-theme="dark"] .bg-task-kind--command { color: #615C54; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .bg-task-kind--command { color: #FFB340; }
+  :root:not([data-theme]) .bg-task-kind--command { color: #615C54; }
 }
 /* A command's reader: the command it ran and what it printed, both open, in the
    same terminal styling the chat's Bash card uses when expanded. The output pre
@@ -4556,7 +4566,7 @@ select {
 }
 .team-agent-user-sent {
   font-size: 13px;
-  background: var(--accent, #007AFF);
+  background: var(--accent, #F45B25);
   color: #fff;
   padding: 6px 12px;
   border-radius: 12px 12px 4px 12px;
@@ -5078,7 +5088,7 @@ select {
 
 .memory-edit-error {
   font-size: 11px;
-  color: var(--red, #ff3b30);
+  color: var(--red, #615C54);
   max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5178,7 +5188,7 @@ select {
   padding: 2px 8px;
   border-radius: 999px;
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   font-weight: 600;
   flex-shrink: 0;
@@ -5339,7 +5349,7 @@ select {
 .agent-tab-new:hover {
   background: var(--accent-subtle);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .chat-panel {
@@ -5495,7 +5505,7 @@ select {
 }
 
 .chat-message-notification .chat-message-role {
-  color: var(--accent);
+  color: var(--fg);
   font-size: 0.85em;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -5548,7 +5558,7 @@ select {
 }
 
 .chat-collapsed-summary a.task-link {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   cursor: pointer;
 }
@@ -5708,7 +5718,7 @@ select {
 }
 
 .markdown-body a {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: text-decoration-color 0.15s;
@@ -5725,14 +5735,14 @@ select {
   text-decoration: none;
   padding: 1px 6px;
   border-radius: 4px;
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.08));
-  color: var(--accent);
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.08));
+  color: var(--fg);
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
 
 .markdown-body a.task-link:hover {
-  background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.16));
+  background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.16));
   text-decoration: none;
 }
 
@@ -5745,7 +5755,7 @@ select {
   padding: 0;
   border-radius: 0;
   background: none;
-  color: var(--accent);
+  color: var(--fg);
   border-bottom: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
@@ -5857,14 +5867,14 @@ select {
   padding: 1px 5px;
   border-radius: 3px;
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   border: none;
   transition: background 0.15s;
 }
 
 .chat-tool-block .task-id-pill:hover {
-  background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.16));
+  background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.16));
 }
 
 /* Session ID pills — clickable links to session detail page */
@@ -5875,7 +5885,7 @@ select {
   padding: 1px 5px;
   border-radius: 3px;
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   border: none;
   transition: background 0.15s;
@@ -5883,7 +5893,7 @@ select {
 }
 
 .session-id-pill:hover {
-  background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.16));
+  background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.16));
 }
 
 .chat-tool-activity {
@@ -6021,7 +6031,7 @@ select {
 }
 
 .chat-task-context-session-id {
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -6158,7 +6168,7 @@ select {
 }
 
 .chat-tool-block-calling .chat-tool-block-icon {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .chat-tool-block-name {
@@ -6380,7 +6390,7 @@ select {
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: var(--accent);
+  color: var(--fg);
   flex-shrink: 0;
 }
 
@@ -6459,12 +6469,12 @@ select {
 }
 
 .chat-tool-block-result a.task-link {
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.08));
-  color: var(--accent);
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.08));
+  color: var(--fg);
 }
 
 .chat-tool-block-result a.task-link:hover {
-  background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.16));
+  background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.16));
 }
 
 .chat-tool-block-result a.session-link {
@@ -6482,7 +6492,7 @@ select {
   border-color: var(--accent);
 }
 .subagent-block--done {
-  border-color: var(--success, #34C759);
+  border-color: var(--success, #615C54);
 }
 .subagent-block--error {
   border-color: var(--error);
@@ -6495,8 +6505,8 @@ select {
   font-weight: 500;
   padding: 1px 5px;
   border-radius: 3px;
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.08));
-  color: var(--accent);
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.08));
+  color: var(--fg);
   flex-shrink: 0;
 }
 .subagent-bg-badge {
@@ -6505,8 +6515,8 @@ select {
   text-transform: uppercase;
   padding: 1px 4px;
   border-radius: 3px;
-  background: var(--warning-subtle, rgba(255, 149, 0, 0.1));
-  color: var(--warning, #FF9500);
+  background: var(--warning-subtle, rgba(97, 92, 84, 0.1));
+  color: var(--warning, #615C54);
   flex-shrink: 0;
 }
 .subagent-meta {
@@ -6560,12 +6570,12 @@ select {
   color: var(--fg-muted);
 }
 .claude-stream-system--error {
-  background: var(--error-subtle, rgba(255, 59, 48, 0.08));
+  background: var(--error-subtle, rgba(97, 92, 84, 0.08));
   color: var(--error);
 }
 .claude-stream-system--compact {
-  background: var(--success-subtle, rgba(52, 199, 89, 0.08));
-  color: var(--success, #34C759);
+  background: var(--success-subtle, rgba(97, 92, 84, 0.08));
+  color: var(--success, #615C54);
 }
 
 /* ── Task Group — collapsible subagent container ── */
@@ -6577,7 +6587,7 @@ select {
   overflow: hidden;
 }
 
-.task-group--done { border-color: var(--success, #34C759); }
+.task-group--done { border-color: var(--success, #615C54); }
 .task-group--error { border-color: var(--error); }
 
 .task-group-header {
@@ -6588,21 +6598,21 @@ select {
   padding: 6px 10px;
   text-align: left;
   font-size: 12px;
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.06));
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.06));
   cursor: pointer;
   border: none;
   transition: background 0.15s;
 }
 
 .task-group-header:hover {
-  background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.12));
+  background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.12));
 }
 
 .task-group--done .task-group-header {
-  background: rgba(52, 199, 89, 0.06);
+  background: rgba(97, 92, 84, 0.06);
 }
 .task-group--done .task-group-header:hover {
-  background: rgba(52, 199, 89, 0.12);
+  background: rgba(97, 92, 84, 0.12);
 }
 
 .task-group-chevron {
@@ -6616,15 +6626,15 @@ select {
   font-size: 11px;
   width: 14px;
   flex-shrink: 0;
-  color: var(--accent);
+  color: var(--fg);
 }
-.task-group--done .task-group-icon { color: var(--success, #34C759); }
+.task-group--done .task-group-icon { color: var(--success, #615C54); }
 .task-group--error .task-group-icon { color: var(--error); }
 
 .task-group-label {
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
   flex-shrink: 0;
 }
 
@@ -6632,8 +6642,8 @@ select {
   font-size: 10px;
   padding: 1px 5px;
   border-radius: 3px;
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.08));
-  color: var(--accent);
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.08));
+  color: var(--fg);
   flex-shrink: 0;
 }
 
@@ -6641,8 +6651,8 @@ select {
   font-size: 10px;
   padding: 1px 5px;
   border-radius: 3px;
-  background: rgba(175, 82, 222, 0.10);
-  color: #AF52DE;
+  background: rgba(97, 92, 84, 0.10);
+  color: #615C54;
   font-family: 'SF Mono', 'Fira Code', monospace;
   flex-shrink: 0;
 }
@@ -6736,7 +6746,7 @@ select {
   padding: 1px 6px;
   border-radius: 8px;
   background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
+  color: var(--fg);
   flex-shrink: 0;
   white-space: nowrap;
 }
@@ -6761,12 +6771,12 @@ select {
 .task-group-transcript {
   flex-shrink: 0;
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
   white-space: nowrap;
 }
 .task-group-header:hover .task-group-transcript { text-decoration: underline; }
 .task-group-header:disabled { cursor: default; }
-.task-group-header:disabled:hover { background: var(--accent-subtle, rgba(0, 122, 255, 0.06)); }
+.task-group-header:disabled:hover { background: var(--accent-subtle, rgba(244, 91, 37, 0.06)); }
 /* An agent nested inside an open transcript: its row is a heading, its lane
    renders beneath it (depth is content inside the reader). */
 .task-group--nested { margin: 8px 0; }
@@ -6833,12 +6843,12 @@ select {
 }
 
 .chat-tool-block-pre a.task-link {
-  background: var(--accent-subtle, rgba(0, 122, 255, 0.08));
-  color: var(--accent);
+  background: var(--accent-subtle, rgba(244, 91, 37, 0.08));
+  color: var(--fg);
 }
 
 .chat-tool-block-pre a.task-link:hover {
-  background: var(--accent-subtle-hover, rgba(0, 122, 255, 0.16));
+  background: var(--accent-subtle-hover, rgba(244, 91, 37, 0.16));
 }
 
 .chat-tool-block-pre a.session-link {
@@ -6914,7 +6924,7 @@ select {
 }
 
 .chat-tool-group-streaming .chat-tool-group-icon {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .chat-tool-group-summary {
@@ -7059,7 +7069,7 @@ select {
 }
 
 .plan-preview-toggle:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .plan-preview-arrow {
@@ -7090,7 +7100,7 @@ select {
 }
 
 .plan-preview-source-link {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 11px;
@@ -7102,7 +7112,7 @@ select {
 
 .plan-preview-body {
   padding: 0 12px 8px;
-  border-left: 3px solid var(--accent, #007AFF);
+  border-left: 3px solid var(--accent, #F45B25);
   margin: 0 12px 8px;
 }
 
@@ -7188,7 +7198,7 @@ select {
   animation: contextBarSlideIn 0.15s ease;
 }
 .chat-input-task-pill.pill-unread {
-  background: rgba(255, 59, 48, 0.06);
+  background: rgba(97, 92, 84, 0.06);
 }
 .chat-input-task-pill .pill-close {
   display: flex;
@@ -7376,7 +7386,7 @@ select {
 }
 .chat-plus-btn:hover:not(:disabled),
 .chat-plus-btn.active {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
 }
 .chat-plus-btn:disabled {
@@ -7682,7 +7692,7 @@ select {
   background: var(--fg-muted);
 }
 .chat-stop-btn-icon:hover:not(:disabled) {
-  background: var(--danger, #ff3b30);
+  background: var(--danger, #615C54);
   filter: none;
 }
 .chat-send-btn-icon:disabled {
@@ -7703,7 +7713,7 @@ select {
   cursor: pointer;
   transition: color 0.15s, background 0.15s;
 }
-.chat-send-caret:hover { color: var(--accent); background: var(--accent-subtle); }
+.chat-send-caret:hover { color: var(--fg); background: var(--accent-subtle); }
 .chat-send-menu {
   position: absolute;
   bottom: calc(100% + 6px);
@@ -7739,7 +7749,7 @@ select {
 }
 
 .chat-attach-btn:hover:not(:disabled) {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
 }
 
@@ -7768,7 +7778,7 @@ select {
 }
 
 .mic-btn:hover:not(:disabled) {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
 }
 
@@ -7973,7 +7983,7 @@ select {
 .voice-panel-flash {
   font-size: 10.5px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
 }
 .voice-panel-hover-actions {
   margin-left: auto;
@@ -8023,7 +8033,7 @@ select {
 .sidebar-voice-btn { position: relative; }
 .voice-icon-transcribing {
   animation: voice-pulse 1.2s ease-in-out infinite;
-  color: var(--accent);
+  color: var(--fg);
 }
 @keyframes voice-pulse {
   0%, 100% { opacity: 1; }
@@ -8309,7 +8319,7 @@ select {
   padding: 1px 7px;
   font-size: 10.5px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
   background: none;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm, 6px);
@@ -8326,7 +8336,7 @@ select {
 }
 
 .mic-transcribing {
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
   animation: mic-transcribe-pulse 1.5s ease-in-out infinite;
 }
@@ -8502,14 +8512,14 @@ select {
   padding: 2px 7px;
   font-size: 11px;
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   border-radius: 10px;
   white-space: nowrap;
 }
 
 @keyframes mic-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(255, 59, 48, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(97, 92, 84, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(97, 92, 84, 0); }
 }
 
 @keyframes mic-spin {
@@ -8607,7 +8617,7 @@ select {
   background: var(--bg-secondary);
   white-space: nowrap;
 }
-.stt-dropdown-check { color: var(--accent); font-weight: bold; flex-shrink: 0; margin-top: 2px; }
+.stt-dropdown-check { color: var(--fg); font-weight: bold; flex-shrink: 0; margin-top: 2px; }
 
 /* ── Badges ── */
 
@@ -8622,11 +8632,11 @@ select {
   letter-spacing: 0.03em;
 }
 .stt-badge-local { background: color-mix(in srgb, var(--success) 15%, transparent); color: var(--success); }
-.stt-badge-cloud { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); }
+.stt-badge-cloud { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--fg); }
 .stt-badge-active { background: color-mix(in srgb, var(--success) 15%, transparent); color: var(--success); }
 .stt-badge-downloaded { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--text-muted); }
 .stt-badge-missing { background: color-mix(in srgb, var(--error) 12%, transparent); color: var(--error); font-size: 0.65rem; }
-.stt-badge-recommended { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); font-weight: 600; }
+.stt-badge-recommended { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--fg); font-weight: 600; }
 
 /* ── Install Banner ── */
 
@@ -8671,7 +8681,7 @@ select {
 }
 .stt-model-tab:hover { color: var(--text-primary); }
 .stt-model-tab-active {
-  color: var(--accent);
+  color: var(--fg);
   border-bottom-color: var(--accent);
   font-weight: 500;
 }
@@ -8701,7 +8711,7 @@ select {
 .stt-model-name { font-weight: 500; font-size: 0.9rem; }
 .stt-model-actions { margin-left: auto; display: flex; align-items: center; gap: 6px; }
 .stt-model-activated { color: var(--success); font-size: 0.8rem; font-weight: 500; }
-.stt-model-downloading { font-size: 0.8rem; color: var(--accent); }
+.stt-model-downloading { font-size: 0.8rem; color: var(--fg); }
 .stt-model-download-pct { font-weight: 500; }
 .stt-model-delete-btn {
   width: 24px;
@@ -8771,7 +8781,7 @@ select {
 }
 .stt-step-done .stt-step-indicator { color: var(--success); }
 .stt-step-error .stt-step-indicator { color: var(--error); }
-.stt-step-running .stt-step-indicator { color: var(--accent); }
+.stt-step-running .stt-step-indicator { color: var(--fg); }
 
 .stt-step-label { font-weight: 500; flex: 1; }
 .stt-step-percent { color: var(--text-muted); font-size: 0.8rem; }
@@ -9053,7 +9063,7 @@ img[data-lightbox-src],
   padding: 0;
   border: none;
   background: transparent;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   cursor: pointer;
   text-decoration: none;
@@ -9448,7 +9458,7 @@ body.walnut-dragging {
   letter-spacing: -0.1px;
   flex: 1;
   min-width: 0;
-  border: 1px solid var(--accent, #007AFF);
+  border: 1px solid var(--accent, #F45B25);
   border-radius: 4px;
   padding: 2px 4px;
   margin: -2px -4px;
@@ -9488,13 +9498,13 @@ body.walnut-dragging {
 }
 
 /* Session header buttons — inherits pill base from .task-action-btn */
-.session-panel-close:hover { color: var(--error); background: rgba(255, 59, 48, 0.08); }
-.session-panel-pin.pinned { color: var(--accent); background: rgba(0, 122, 255, 0.12); }
+.session-panel-close:hover { color: var(--error); background: rgba(97, 92, 84, 0.08); }
+.session-panel-pin.pinned { color: var(--fg); background: rgba(244, 91, 37, 0.12); }
 .session-panel-pin:disabled { cursor: default; opacity: 0.3; }
 
 /* Lock button — toggles panel between the rotating region and the locked right region */
 .session-panel-lock.is-locked {
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 .session-panel-lock.is-locked:hover {
@@ -9772,7 +9782,7 @@ body.walnut-dragging {
 }
 
 .session-panel-id-link:hover {
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
@@ -9794,7 +9804,7 @@ body.walnut-dragging {
   padding: 3px 8px;
   border-radius: 6px;
   font-size: 12px;
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 8%, transparent);
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
@@ -9945,7 +9955,7 @@ body.walnut-dragging {
 }
 
 .task-quick-attention.active .task-quick-attention-dot {
-  background: var(--error, #ff3b30);
+  background: var(--error, #615C54);
 }
 
 .session-panel-body {
@@ -10155,7 +10165,7 @@ body.walnut-dragging {
   transition: border-color 0.15s, background 0.15s;
 }
 .vd-trigger:hover { border-color: var(--accent); }
-.vd-has-filter { color: var(--accent); border-color: var(--accent); }
+.vd-has-filter { color: var(--fg); border-color: var(--accent); }
 /* Icon-only variant — GHOST icon (no border/box; toolbar icons stay quiet).
    Active filter = accent glyph + corner dot, still no box. */
 .vd-trigger-icon {
@@ -10168,9 +10178,9 @@ body.walnut-dragging {
   border-radius: 50%;
   transition: color 0.15s, background 0.15s;
 }
-.vd-trigger-icon:hover { color: var(--accent); background: var(--accent-subtle); }
+.vd-trigger-icon:hover { color: var(--fg); background: var(--accent-subtle); }
 .vd-trigger-icon svg { display: block; }
-.vd-trigger-icon.vd-has-filter { color: var(--accent); border: none; }
+.vd-trigger-icon.vd-has-filter { color: var(--fg); border: none; }
 .vd-trigger-icon .vd-dot {
   position: absolute; top: 2px; right: 2px; margin: 0;
 }
@@ -10226,7 +10236,7 @@ body.walnut-dragging {
   display: inline-flex; align-items: center; vertical-align: baseline;
   max-width: 160px; margin: 0 1px;
   background: var(--accent-subtle); border: 1px solid var(--accent);
-  color: var(--accent); border-radius: 6px; font-weight: 500; font-size: 12px;
+  color: var(--fg); border-radius: 6px; font-weight: 500; font-size: 12px;
   line-height: 1.4;
 }
 .vd-sc-label { padding: 1px 2px 1px 7px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -10377,7 +10387,7 @@ body.walnut-dragging {
 }
 
 .filter-toolbar-toggle.has-active {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .filter-active-count {
@@ -10460,7 +10470,7 @@ body.walnut-dragging {
   white-space: nowrap;
 }
 .todo-minibar-btn:hover { background: var(--bg-hover); color: var(--fg); }
-.todo-minibar-btn.on { color: var(--accent); background: var(--accent-subtle); }
+.todo-minibar-btn.on { color: var(--fg); background: var(--accent-subtle); }
 .todo-minibar-sep {
   width: 1px;
   height: 13px;
@@ -10468,12 +10478,12 @@ body.walnut-dragging {
   margin: 0 3px;
   flex: none;
 }
-.todo-minibar-running { color: var(--success, #34c759); }
+.todo-minibar-running { color: var(--success, #615C54); }
 .todo-minibar-running-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--success, #34c759);
+  background: var(--success, #615C54);
   flex: none;
 }
 
@@ -10511,7 +10521,7 @@ body.walnut-dragging {
   white-space: nowrap;
 }
 .todo-filter-footer-chip:hover { background: var(--bg-hover); color: var(--fg); }
-.todo-filter-footer-chip.on { color: var(--accent); background: var(--accent-subtle); }
+.todo-filter-footer-chip.on { color: var(--fg); background: var(--accent-subtle); }
 .todo-filter-footer-icon { display: inline-flex; }
 .todo-filter-footer-icon svg { width: 12px; height: 12px; }
 
@@ -10539,7 +10549,7 @@ body.walnut-dragging {
 
 .todo-section-tab.is-active {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
 }
 
@@ -10587,7 +10597,7 @@ body.walnut-dragging {
 }
 
 .todo-section-tab.is-active .todo-section-tab-count {
-  color: var(--accent);
+  color: var(--fg);
   opacity: 1;
 }
 
@@ -10909,15 +10919,15 @@ body.walnut-dragging {
 }
 
 .todo-pinned-card-needs-action {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 .todo-pinned-card-needs-action:hover {
-  background: rgba(255, 59, 48, 0.14);
+  background: rgba(97, 92, 84, 0.14);
 }
 
 .todo-pinned-card-needs-action.todo-pinned-card-active {
-  background: rgba(255, 59, 48, 0.12);
+  background: rgba(97, 92, 84, 0.12);
 }
 
 /* Completed task surfaced in Recent (via "Show completed") — struck-through +
@@ -11043,7 +11053,7 @@ body.walnut-dragging {
   max-width: 260px;
   background: var(--bg);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border: 1px solid var(--accent, #007aff);
+  border: 1px solid var(--accent, #F45B25);
   border-radius: 6px;
   padding: 4px 10px;
   min-height: 28px;
@@ -11068,7 +11078,7 @@ body.walnut-dragging {
 .todo-pinned-group-drag-preview {
   background: var(--bg);
   box-shadow: 0 6px 18px rgba(0,0,0,0.22);
-  border: 1px solid var(--accent, #007aff);
+  border: 1px solid var(--accent, #F45B25);
   border-radius: 8px;
   padding: 6px 8px;
   min-width: 180px;
@@ -11082,7 +11092,7 @@ body.walnut-dragging {
   align-items: center;
   gap: 4px;
   font-weight: 600;
-  color: var(--accent, #007aff);
+  color: var(--accent, #F45B25);
   margin-bottom: 4px;
 }
 .todo-pinned-group-drag-label {
@@ -11189,11 +11199,11 @@ body.walnut-dragging {
 /* Tier icons (SVG, stroke-style: crosshair / planet+satellite / hourglass).
    Color IS the tier: Focus accent-blue, Satellite muted-grey,
    Wait amber (paused/blocked — the old grey half-circle read as Satellite). */
-.todo-tier-icon-focus { color: var(--tier-focus, var(--accent, #007aff)); }
+.todo-tier-icon-focus { color: var(--tier-focus, #615C54); }
 .todo-tier-icon-satellite { color: var(--tier-satellite, var(--fg-muted)); }
-.todo-tier-icon-backlog { color: var(--tier-backlog, #30b0c7); }
-.todo-tier-icon-wait { color: var(--tier-wait, #ff9f0a); }
-.todo-tier-icon-custom { color: var(--tier-custom, #af52de); }
+.todo-tier-icon-backlog { color: var(--tier-backlog, #615C54); }
+.todo-tier-icon-wait { color: var(--tier-wait, #615C54); }
+.todo-tier-icon-custom { color: var(--tier-custom, #615C54); }
 
 .todo-tier-icon-focus,
 .todo-tier-icon-satellite,
@@ -11231,11 +11241,11 @@ body.walnut-dragging {
 }
 
 .todo-focus-card.todo-pinned-card-needs-action {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 .todo-focus-card.todo-pinned-card-needs-action:hover {
-  background: rgba(255, 59, 48, 0.14);
+  background: rgba(97, 92, 84, 0.14);
 }
 
 /* Focus drop zone */
@@ -11255,8 +11265,8 @@ body.walnut-dragging {
 }
 
 .todo-focus-drop-zone-over {
-  background: color-mix(in srgb, var(--accent, #007aff) 8%, transparent);
-  border-color: var(--accent, #007aff);
+  background: color-mix(in srgb, var(--accent, #F45B25) 8%, transparent);
+  border-color: var(--accent, #F45B25);
 }
 
 .todo-focus-placeholder {
@@ -11283,7 +11293,7 @@ body.walnut-dragging {
 }
 .focus-inline-add-trigger:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
 }
 .focus-inline-add-plus {
@@ -11358,7 +11368,7 @@ body.walnut-dragging {
 
 .todo-tier-btn:hover {
   opacity: 1 !important;
-  color: var(--accent, #007aff);
+  color: var(--accent, #F45B25);
 }
 
 /* ── Recent tasks (time-ago + pin button) ── */
@@ -11479,11 +11489,11 @@ body.walnut-dragging {
    surface speaks one language: red row = act on me. Phase-driven, so it stays
    on until the human completes the task or a new turn starts. */
 .todo-panel-item-needs-action {
-  --row-pill-bg: rgba(255, 59, 48, 0.08);
+  --row-pill-bg: rgba(97, 92, 84, 0.08);
 }
 
 .todo-panel-item-needs-action:hover {
-  --row-pill-bg: rgba(255, 59, 48, 0.14);
+  --row-pill-bg: rgba(97, 92, 84, 0.14);
 }
 
 .todo-panel-item-done {
@@ -11509,11 +11519,11 @@ body.walnut-dragging {
    the whole grace period (the green used to ride the vanish keyframes — it now lives
    here so the row's background is stable while the row sits still). */
 @keyframes todo-recently-done-flash {
-  from { background: rgba(52, 199, 89, 0.20); }
-  to   { background: rgba(52, 199, 89, 0.06); }
+  from { background: rgba(97, 92, 84, 0.20); }
+  to   { background: rgba(97, 92, 84, 0.06); }
 }
 .todo-panel-item-recently-done {
-  --row-pill-bg: rgba(52, 199, 89, 0.06);
+  --row-pill-bg: rgba(97, 92, 84, 0.06);
 }
 .todo-panel-item-recently-done .todo-row-pill {
   animation: todo-recently-done-flash 360ms ease-out;
@@ -11583,8 +11593,8 @@ body.walnut-dragging {
 /* collapse-chevron-spacer removed — chevron is now absolutely positioned in padding area */
 .task-children-badge {
   font-size: 10px;
-  color: var(--accent);
-  background: rgba(0, 122, 255, 0.08);
+  color: var(--fg);
+  background: rgba(244, 91, 37, 0.08);
   padding: 1px 5px;
   border-radius: 4px;
   white-space: nowrap;
@@ -11649,8 +11659,8 @@ body.walnut-dragging {
 .task-group-chip-drop {
   opacity: 1;
   border: 1.5px solid var(--accent);
-  background: rgba(0, 122, 255, 0.08);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.08);
+  color: var(--fg);
 }
 /* The border takes the padding's room: the row must not grow under a live drag
    (dnd-kit measured the rows at drag start). The empty-folder row has its own
@@ -11709,7 +11719,7 @@ body.walnut-dragging {
   font-size: 9px;
   line-height: 1;
   letter-spacing: -1px;
-  color: var(--accent);
+  color: var(--fg);
   opacity: 0;
   cursor: grab;
   touch-action: none;
@@ -11764,7 +11774,7 @@ body.walnut-dragging {
   gap: 4px;
   max-width: 100%;
   padding: 2px 7px;
-  border: 1px dashed var(--group-outline, rgba(0, 122, 255, 0.32));
+  border: 1px dashed var(--group-outline, rgba(244, 91, 37, 0.32));
   border-radius: 10px;
   background: transparent;
   color: var(--text-secondary, #8a8a8e);
@@ -11774,8 +11784,8 @@ body.walnut-dragging {
   transition: background 0.12s, color 0.12s, border-color 0.12s;
 }
 .todo-pinned-hidden-chip:hover {
-  background: rgba(0, 122, 255, 0.1);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.1);
+  color: var(--fg);
   border-color: var(--accent);
 }
 .todo-pinned-hidden-chip-icon { font-size: 11px; opacity: 0.85; }
@@ -12140,7 +12150,7 @@ body.walnut-dragging {
 }
 
 .todo-item-due-overdue {
-  background: rgba(255, 59, 48, 0.12);
+  background: rgba(97, 92, 84, 0.12);
   color: var(--error);
 }
 
@@ -12260,8 +12270,8 @@ body.walnut-dragging {
 /* Deferred-start pill — future start_date; blue tint to read as "scheduled",
    not "late" */
 .todo-item-start-pill {
-  background: rgba(0, 122, 255, 0.1);
-  color: var(--accent, #007aff);
+  background: rgba(244, 91, 37, 0.1);
+  color: var(--accent, #F45B25);
 }
 
 /* Inline title editing (contentEditable — same element, no layout shift) */
@@ -12408,8 +12418,8 @@ body.walnut-dragging {
   line-height: 1.4;
 }
 
-.todo-detail-priority-pill.priority-immediate { background: rgba(255, 59, 48, 0.12); color: var(--error); }
-.todo-detail-priority-pill.priority-important { background: rgba(255, 149, 0, 0.12); color: #FF9500; }
+.todo-detail-priority-pill.priority-immediate { background: rgba(97, 92, 84, 0.12); color: var(--error); }
+.todo-detail-priority-pill.priority-important { background: rgba(97, 92, 84, 0.12); color: #615C54; }
 .todo-detail-priority-pill.priority-backlog { background: var(--bg-tertiary); color: var(--fg-muted); }
 
 .todo-detail-sprint-pill {
@@ -12418,8 +12428,8 @@ body.walnut-dragging {
   border-radius: 4px;
   font-weight: 500;
   line-height: 1.4;
-  background: rgba(0, 122, 255, 0.08);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.08);
+  color: var(--fg);
 }
 
 /* Sprint picker — interactive pill + dropdown */
@@ -12429,15 +12439,15 @@ body.walnut-dragging {
   border-radius: 4px;
   font-weight: 500;
   line-height: 1.4;
-  background: rgba(0, 122, 255, 0.08);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.08);
+  color: var(--fg);
   border: 1px solid transparent;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
 .sprint-picker-pill:hover {
   border-color: var(--accent);
-  background: rgba(0, 122, 255, 0.14);
+  background: rgba(244, 91, 37, 0.14);
 }
 .sprint-picker-empty-pill {
   background: transparent;
@@ -12447,7 +12457,7 @@ body.walnut-dragging {
 }
 .sprint-picker-empty-pill:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 .sprint-picker-dropdown {
   position: absolute;
@@ -12483,8 +12493,8 @@ body.walnut-dragging {
 }
 .sprint-picker-active {
   font-weight: 600;
-  color: var(--accent);
-  background: rgba(0, 122, 255, 0.08);
+  color: var(--fg);
+  background: rgba(244, 91, 37, 0.08);
 }
 .sprint-picker-clear {
   color: var(--error);
@@ -12497,8 +12507,8 @@ body.walnut-dragging {
   font-size: 9px;
   padding: 1px 5px;
   border-radius: 3px;
-  background: rgba(52, 199, 89, 0.12);
-  color: #34C759;
+  background: rgba(97, 92, 84, 0.12);
+  color: #615C54;
   font-weight: 500;
   flex-shrink: 0;
 }
@@ -12543,7 +12553,7 @@ body.walnut-dragging {
 
 .copyable-id-value:hover,
 .copyable-id-value:focus-visible {
-  color: var(--accent);
+  color: var(--fg);
   outline: none;
 }
 
@@ -12656,7 +12666,7 @@ body.walnut-dragging {
 }
 
 .todo-detail-note.markdown-body a {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   overflow-wrap: break-word;
 }
@@ -12785,7 +12795,7 @@ body.walnut-dragging {
 }
 
 .session-id-mono:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .todo-detail-empty {
@@ -12847,7 +12857,7 @@ body.walnut-dragging {
 
 .global-notes-error {
   font-size: 11px;
-  color: var(--red, #ff3b30);
+  color: var(--red, #615C54);
   font-style: italic;
   cursor: help;
 }
@@ -12864,7 +12874,7 @@ body.walnut-dragging {
 }
 
 .global-notes-expand-btn:hover {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
 }
 
@@ -13118,7 +13128,7 @@ body.walnut-dragging {
 /* ===== Task link pill in notes editor ===== */
 
 .notes-editor .tiptap a.task-link {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   background: color-mix(in srgb, var(--accent) 10%, transparent);
   padding: 1px 6px;
@@ -13271,7 +13281,7 @@ body.walnut-dragging {
 }
 
 .notes-task-search-pin {
-  color: var(--accent);
+  color: var(--fg);
   margin-right: 4px;
   font-size: 11px;
 }
@@ -13474,7 +13484,7 @@ body.walnut-dragging {
 }
 
 .todo-panel-toggle-completed.active {
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
   background: var(--accent-subtle);
 }
@@ -13662,16 +13672,16 @@ body.walnut-dragging {
   border-top: 1px solid var(--border);
 }
 .project-delete-btn {
-  border: 1px solid color-mix(in srgb, var(--danger, #ff3b30) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--danger, #615C54) 35%, transparent);
   background: none;
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
   border-radius: 6px;
   padding: 4px 12px;
   font-size: 12px;
   cursor: pointer;
 }
 .project-delete-btn:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--danger, #ff3b30) 10%, transparent);
+  background: color-mix(in srgb, var(--danger, #615C54) 10%, transparent);
 }
 .project-delete-btn:disabled { cursor: default; opacity: 0.6; }
 .project-delete-hint {
@@ -13682,7 +13692,7 @@ body.walnut-dragging {
 .project-delete-error {
   margin: 6px 0 0;
   font-size: 11px;
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
 }
 
 .detail-setting-row {
@@ -13942,7 +13952,7 @@ body.walnut-dragging {
    report 2026-08-13). Line + left dot, the standard insertion affordance. */
 .tier-project-label-dropover {
   position: relative;
-  color: var(--accent);
+  color: var(--fg);
 }
 .tier-project-label-dropover::before {
   content: '';
@@ -14221,7 +14231,7 @@ body.walnut-dragging {
 
 .todo-panel-tab-starred:hover {
   color: var(--warning);
-  background: rgba(255, 149, 0, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 .todo-panel-tab-starred.todo-panel-tab-active {
@@ -14450,7 +14460,7 @@ body.walnut-dragging {
 
 .filter-chip-standalone.active {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
 }
 
@@ -14487,7 +14497,7 @@ body.walnut-dragging {
 
 .sort-toggle-btn.active {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* "More" dropdown — lives at the end of a segment */
@@ -14564,7 +14574,7 @@ body.walnut-dragging {
 }
 
 .filter-more-menu-item.active {
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
 }
 
@@ -14582,7 +14592,7 @@ body.walnut-dragging {
 }
 
 .filter-more-menu-item.active .filter-more-count {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* Compact spacing for stacked filter bars */
@@ -14612,7 +14622,7 @@ body.walnut-dragging {
 }
 
 .task-external-link:hover {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
 }
 
@@ -14621,7 +14631,7 @@ body.walnut-dragging {
   align-items: center;
   gap: 4px;
   font-size: 13px;
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   padding: 4px 10px;
   border-radius: var(--radius-sm);
@@ -14630,7 +14640,7 @@ body.walnut-dragging {
 }
 
 .task-detail-external-link:hover {
-  background: rgba(0, 122, 255, 0.15);
+  background: rgba(244, 91, 37, 0.15);
   text-decoration: none;
 }
 
@@ -14722,7 +14732,7 @@ body.walnut-dragging {
 .tdv2-session-open {
   margin-left: auto;
   flex: none;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11.5px;
   opacity: 0;
 }
@@ -14747,12 +14757,12 @@ body.walnut-dragging {
 }
 
 .task-source-badge-unsynced {
-  background: #FF9500;
+  background: #615C54;
   opacity: 0.7;
 }
 
 .task-source-badge-error {
-  background: #FF3B30;
+  background: #615C54;
   color: white;
   opacity: 1;
 }
@@ -14894,14 +14904,14 @@ body.walnut-dragging {
   font-size: 11px;
   font-weight: 600;
 }
-.task-action-btn:hover { color: var(--accent); background: var(--accent-subtle); }
+.task-action-btn:hover { color: var(--fg); background: var(--accent-subtle); }
 .task-action-btn svg { display: block; }
 
-.task-expand-btn.active { color: var(--accent); background: rgba(0, 122, 255, 0.12); }
-.task-star-btn.starred { color: var(--warning); background: rgba(255, 149, 0, 0.12); }
-.task-star-btn:hover { color: var(--warning); background: rgba(255, 149, 0, 0.08); }
-.task-pin-btn.pinned { color: var(--accent); background: rgba(0, 122, 255, 0.12); }
-.task-pin-btn:hover { color: var(--accent); }
+.task-expand-btn.active { color: var(--fg); background: rgba(244, 91, 37, 0.12); }
+.task-star-btn.starred { color: var(--warning); background: rgba(97, 92, 84, 0.12); }
+.task-star-btn:hover { color: var(--warning); background: rgba(97, 92, 84, 0.08); }
+.task-pin-btn.pinned { color: var(--fg); background: rgba(244, 91, 37, 0.12); }
+.task-pin-btn:hover { color: var(--fg); }
 .task-delete-btn { opacity: 0; transition: opacity 0.15s; }
 .todo-item:hover .task-delete-btn,
 .task-card:hover .task-delete-btn { opacity: 1; }
@@ -14921,7 +14931,7 @@ body.walnut-dragging {
   line-height: 1;
 }
 .task-card:hover .task-ungroup-btn { opacity: 0.7; }
-.task-ungroup-btn:hover { color: var(--accent); background: rgba(0, 122, 255, 0.12); opacity: 1; }
+.task-ungroup-btn:hover { color: var(--fg); background: rgba(244, 91, 37, 0.12); opacity: 1; }
 
 /* ===== Task Kebab Menu ===== */
 
@@ -14966,7 +14976,7 @@ body.walnut-dragging {
 
 .task-kebab-btn:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .task-kebab-menu {
@@ -15043,7 +15053,7 @@ body.walnut-dragging {
 }
 
 .task-kebab-item-active {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .task-kebab-item-danger {
@@ -15305,12 +15315,12 @@ a.task-kebab-info:hover {
   cursor: pointer;
 }
 .task-kebab-project-opt:hover { background: var(--accent-subtle); }
-.task-kebab-project-opt.active { font-weight: 600; color: var(--accent); }
+.task-kebab-project-opt.active { font-weight: 600; color: var(--fg); }
 .task-kebab-project-check {
   width: 12px;
   flex: none;
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
 }
 .task-kebab-project-opt-name {
   overflow: hidden;
@@ -15335,7 +15345,7 @@ a.task-kebab-info:hover {
 }
 .plugin-field-current-mark {
   font-size: 10px;
-  color: var(--accent);
+  color: var(--fg);
 }
 .plugin-field-pill {
   display: inline-flex;
@@ -15416,9 +15426,9 @@ a.task-kebab-info:hover {
   color: var(--fg-secondary);
 }
 .dp-trigger-overdue {
-  background: rgba(255, 59, 48, 0.12);
+  background: rgba(97, 92, 84, 0.12);
   color: var(--error);
-  border-color: rgba(255, 59, 48, 0.3);
+  border-color: rgba(97, 92, 84, 0.3);
 }
 .dp-popover {
   min-width: 220px;
@@ -15454,7 +15464,7 @@ a.task-kebab-info:hover {
 }
 .dp-pill:hover { background: var(--accent-subtle, var(--bg-tertiary)); color: var(--fg-primary); }
 .dp-pill-none { border-style: dashed; color: var(--fg-muted); }
-.dp-pill-none:hover { background: var(--error-subtle, rgba(255, 59, 48, 0.15)); color: var(--error); border-color: var(--error); }
+.dp-pill-none:hover { background: var(--error-subtle, rgba(97, 92, 84, 0.15)); color: var(--error); border-color: var(--error); }
 .dp-calendar-row { display: flex; align-items: center; gap: 4px; }
 .dp-date-input {
   flex: 1;
@@ -15581,7 +15591,7 @@ a.task-kebab-info:hover {
 }
 
 .context-token-badge-total {
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
 }
 
@@ -15701,7 +15711,7 @@ a.task-kebab-info:hover {
 }
 
 .context-skill-type-action {
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
 }
 
@@ -15747,7 +15757,7 @@ a.task-kebab-info:hover {
 .context-tool-name {
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .context-tool-toggle {
@@ -15796,7 +15806,7 @@ a.task-kebab-info:hover {
 }
 
 .context-msg-user .context-msg-role {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .context-msg-assistant .context-msg-role {
@@ -15951,7 +15961,7 @@ a.task-kebab-info:hover {
 }
 
 .cron-menu-danger:hover {
-  background: rgba(255, 59, 48, 0.1);
+  background: rgba(97, 92, 84, 0.1);
   color: var(--error);
 }
 
@@ -16057,7 +16067,7 @@ a.task-kebab-info:hover {
 .cron-job-error {
   margin-top: 6px;
   padding: 6px 10px;
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
   color: var(--error);
   border-radius: 4px;
   white-space: pre-wrap;
@@ -16112,7 +16122,7 @@ a.task-kebab-info:hover {
 
 .cron-form-error {
   padding: 8px 12px;
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
   color: var(--error);
   border-radius: var(--radius-sm);
   font-size: 13px;
@@ -16209,7 +16219,7 @@ a.task-kebab-info:hover {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  color: var(--accent);
+  color: var(--fg);
 }
 .notification-toast--success .notification-toast-icon { color: var(--success, #3aa757); }
 .notification-toast--warning .notification-toast-icon { color: var(--warning); }
@@ -16227,7 +16237,7 @@ a.task-kebab-info:hover {
 
 .notification-toast--warning .notification-toast-title { color: var(--warning); }
 .notification-toast--error .notification-toast-title { color: var(--danger, #d94a38); }
-.notification-toast--info .notification-toast-title { color: var(--accent); }
+.notification-toast--info .notification-toast-title { color: var(--fg); }
 
 .notification-toast-close {
   background: none;
@@ -16255,7 +16265,7 @@ a.task-kebab-info:hover {
 .notification-toast-action {
   font-size: 12px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
   background: none;
   border: 1px solid var(--accent);
   border-radius: var(--radius-sm);
@@ -16316,7 +16326,7 @@ a.task-kebab-info:hover {
 .agent-card-edited {
   font-size: 12px;
   opacity: 0.6;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .agent-card-desc {
@@ -16363,48 +16373,48 @@ a.task-kebab-info:hover {
 }
 
 .agent-badge-config {
-  background: rgba(255, 159, 10, 0.12);
-  color: #E68A00;
+  background: rgba(97, 92, 84, 0.12);
+  color: #615C54;
 }
 
 [data-theme="dark"] .agent-badge-config {
-  color: #FFB340;
+  color: #615C54;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .agent-badge-config {
-    color: #FFB340;
+    color: #615C54;
   }
 }
 
 .agent-badge-override {
-  background: rgba(0, 122, 255, 0.12);
-  color: #007AFF;
+  background: rgba(244, 91, 37, 0.12);
+  color: #615C54;
 }
 
 [data-theme="dark"] .agent-badge-override {
-  color: #0A84FF;
+  color: #615C54;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .agent-badge-override {
-    color: #0A84FF;
+    color: #615C54;
   }
 }
 
 /* Console vs background kind badges (accent/green vs muted grey). */
 .agent-badge-console {
-  background: rgba(52, 199, 89, 0.14);
-  color: #2EA84F;
+  background: rgba(97, 92, 84, 0.14);
+  color: #615C54;
 }
 
 [data-theme="dark"] .agent-badge-console {
-  color: #34C759;
+  color: #615C54;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .agent-badge-console {
-    color: #34C759;
+    color: #615C54;
   }
 }
 
@@ -16546,7 +16556,7 @@ a.task-kebab-info:hover {
 }
 
 .agent-confirm-reset {
-  background: #007AFF;
+  background: #F45B25;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -16606,7 +16616,7 @@ a.task-kebab-info:hover {
 
 .agent-form-error {
   padding: 8px 12px;
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
   color: var(--error);
   border-radius: 6px;
   font-size: 13px;
@@ -16615,8 +16625,8 @@ a.task-kebab-info:hover {
 
 .agent-form-info {
   padding: 8px 12px;
-  background: rgba(0, 122, 255, 0.08);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.08);
+  color: var(--fg);
   border-radius: 6px;
   font-size: 13px;
   margin-bottom: 12px;
@@ -16765,14 +16775,14 @@ a.task-kebab-info:hover {
   border-radius: 10px;
   font-size: 11px;
   font-family: var(--font-mono);
-  background: rgba(0, 122, 255, 0.1);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.1);
+  color: var(--fg);
   cursor: pointer;
   white-space: nowrap;
 }
 
 .tool-picker-chip:hover {
-  background: rgba(0, 122, 255, 0.2);
+  background: rgba(244, 91, 37, 0.2);
 }
 
 .tool-picker-categories {
@@ -16797,7 +16807,7 @@ a.task-kebab-info:hover {
 }
 
 .tool-picker-category-header:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .tool-picker-tools {
@@ -16866,8 +16876,8 @@ a.task-kebab-info:hover {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  background: rgba(0, 122, 255, 0.12);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.12);
+  color: var(--fg);
 }
 
 .context-source-budget {
@@ -16913,7 +16923,7 @@ a.task-kebab-info:hover {
 .skills-toggle-all-btn {
   background: none;
   border: none;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 12px;
   cursor: pointer;
   padding: 2px 0;
@@ -17001,8 +17011,8 @@ a.task-kebab-info:hover {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  background: rgba(52, 199, 89, 0.15);
-  color: #34C759;
+  background: rgba(97, 92, 84, 0.15);
+  color: #615C54;
 }
 
 /* ===== Responsive ===== */
@@ -17286,7 +17296,7 @@ a.task-kebab-info:hover {
   font-size: 13px;
   font-weight: 600;
   font-family: 'SF Mono', Menlo, monospace;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .command-palette-row {
@@ -17327,7 +17337,7 @@ a.task-kebab-info:hover {
   color: #d97706;
 }
 .command-palette-control .command-palette-desc {
-  color: #92400e;
+  color: #615C54;
 }
 [data-theme="dark"] .command-palette-control .command-palette-name {
   color: #fbbf24;
@@ -17337,7 +17347,7 @@ a.task-kebab-info:hover {
 }
 
 .command-palette-source-control {
-  color: #92400e;
+  color: #615C54;
   background: #fef3c7;
 }
 [data-theme="dark"] .command-palette-source-control {
@@ -17346,7 +17356,7 @@ a.task-kebab-info:hover {
 }
 
 .command-palette-source-app {
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
@@ -17528,7 +17538,7 @@ a.task-kebab-info:hover {
 }
 .file-mention-item.selected .fmp-pick,
 .file-mention-item:hover .fmp-pick { opacity: 1; }
-.fmp-pick:hover { background: var(--accent-subtle); color: var(--accent); border-color: var(--accent); }
+.fmp-pick:hover { background: var(--accent-subtle); color: var(--fg); border-color: var(--accent); }
 
 .file-mention-preview {
   flex: 1;
@@ -17701,7 +17711,7 @@ a.task-kebab-info:hover {
 }
 .qtc-parsed {
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
   align-self: center;
 }
 .qtc-confirm-panel {
@@ -17749,7 +17759,7 @@ a.task-kebab-info:hover {
   white-space: nowrap;
 }
 .qtc-confirm-ai {
-  color: var(--accent);
+  color: var(--fg);
   font-size: 10px;
 }
 /* "new" pill on an AI-invented project name (it will be created on submit). */
@@ -17761,7 +17771,7 @@ a.task-kebab-info:hover {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 .qtc-confirm-chips {
@@ -17856,8 +17866,8 @@ a.task-kebab-info:hover {
   transition: background 0.1s, filter 0.1s;
 }
 .sps-status-btn:hover { filter: brightness(1.08); }
-.sps-status-valid { background: var(--success, #34C759); color: #fff; }
-.sps-status-missing { background: var(--warning, #FF9500); color: #fff; font-size: 11px; }
+.sps-status-valid { background: var(--success, #615C54); color: #fff; }
+.sps-status-missing { background: var(--warning, #615C54); color: #fff; font-size: 11px; }
 .sps-status-unknown { background: var(--accent); color: #fff; }
 .sps-status-btn:disabled { opacity: 0.5; cursor: default; }
 
@@ -17998,7 +18008,7 @@ a.task-kebab-info:hover {
   color: var(--fg-muted);
 }
 .sps-raw-host-nudge a {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -18031,7 +18041,7 @@ a.task-kebab-info:hover {
 /* Marker on a live dir that's also in session history */
 .sps-hist-marker {
   font-size: 10px;
-  color: var(--accent);
+  color: var(--fg);
   opacity: 0.9;
 }
 
@@ -18087,7 +18097,7 @@ a.task-kebab-info:hover {
   padding: 2px 10px;
   font-size: 11px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
   background: transparent;
   border: 1px solid var(--accent);
   border-radius: 999px;
@@ -18246,7 +18256,7 @@ a.task-kebab-info:hover {
   padding: 2px 10px;
   font-size: 11px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
   background: transparent;
   border: 1px solid var(--accent);
   border-radius: 999px;
@@ -18279,7 +18289,7 @@ a.task-kebab-info:hover {
 }
 .sps-create-row .sps-create-icon {
   font-weight: 700;
-  color: var(--accent);
+  color: var(--fg);
 }
 .sps-create-row code {
   font-family: 'SF Mono', Menlo, monospace;
@@ -18387,7 +18397,7 @@ a.task-kebab-info:hover {
 .sps-meta-toggle.active {
   background: var(--accent-subtle);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 .sps-meta-toggle.active.unread {
   background: #fdecea;
@@ -18498,7 +18508,7 @@ a.task-kebab-info:hover {
 .sps-meta-more-btn.active {
   background: var(--accent-subtle);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 .sps-meta-more-badge {
   font-weight: 600;
@@ -18775,7 +18785,7 @@ a.task-kebab-info:hover {
 .model-picker-refresh.model-picker-refresh-refreshing,
 .model-picker-refresh.model-picker-refresh-refreshing:hover {
   animation: model-picker-refresh-spin 0.9s linear infinite;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* Success/failure flash — pop in, hold ~2s (JS returns state to idle). */
@@ -18834,7 +18844,7 @@ a.task-kebab-info:hover {
 }
 
 .model-picker-live-dot {
-  color: var(--success, #34c759);
+  color: var(--success, #615C54);
   font-size: 9px;
 }
 
@@ -19018,7 +19028,7 @@ a.task-kebab-info:hover {
 .model-picker-row-check {
   width: 14px;
   flex: none;
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 700;
   text-align: center;
 }
@@ -19152,7 +19162,7 @@ a.task-kebab-info:hover {
 }
 .hook-card-phase {
   font-weight: 600;
-  color: var(--accent);
+  color: var(--fg);
 }
 .hook-card-message {
   margin-top: 4px;
@@ -19220,7 +19230,7 @@ a.task-kebab-info:hover {
   border: 1px solid var(--border);
   color: var(--fg-muted);
 }
-.hook-card-badge-config { color: var(--accent); border-color: var(--accent); }
+.hook-card-badge-config { color: var(--fg); border-color: var(--accent); }
 .hook-card-badge-daemon-policy { color: var(--warning, #b8860b); border-color: var(--warning, #b8860b); }
 .hook-card-readonly {
   font-size: 11px;
@@ -19354,10 +19364,10 @@ a.task-kebab-info:hover {
 }
 .cmd-source-badge.builtin {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 .cmd-source-badge.user {
-  background: rgba(52, 199, 89, 0.12);
+  background: rgba(97, 92, 84, 0.12);
   color: var(--success);
 }
 
@@ -19396,7 +19406,7 @@ a.task-kebab-info:hover {
   background: none;
   font-size: 12px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -19455,7 +19465,7 @@ a.task-kebab-info:hover {
   color: var(--error);
 }
 .cmd-menu-danger:hover {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 /* Delete confirm popover */
@@ -19511,7 +19521,7 @@ a.task-kebab-info:hover {
 .cmd-form-error {
   padding: 8px 12px;
   margin-bottom: 12px;
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
   color: var(--error);
   border-radius: var(--radius-sm);
   font-size: 13px;
@@ -19578,7 +19588,7 @@ a.task-kebab-info:hover {
 }
 
 .usage-summary-card.accent .usage-card-value {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .usage-card-label {
@@ -19837,7 +19847,7 @@ a.task-kebab-info:hover {
 
 .usage-chip-clear-all {
   font-size: 12px;
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: underline;
   padding: 2px 4px;
 }
@@ -19996,7 +20006,7 @@ td.usage-share-col {
 
 .session-msg-received-badge {
   font-size: 10px;
-  color: var(--accent);
+  color: var(--fg);
   padding-right: 4px;
   margin-top: 2px;
   letter-spacing: 0.3px;
@@ -20050,19 +20060,19 @@ td.usage-share-col {
 /* Failed: send error — red border, full opacity so message is clearly visible */
 .session-msg-failed {
   position: relative;
-  border-right: 2px solid var(--danger, #ff3b30);
+  border-right: 2px solid var(--danger, #615C54);
   padding-right: 8px;
   margin-right: 8px;
 }
 .session-msg-failed-badge {
   font-size: 10px;
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
   padding-right: 4px;
   font-weight: 600;
   text-align: right;
 }
 .session-msg-retry-btn {
-  color: var(--accent) !important;
+  color: var(--fg) !important;
   font-weight: 600;
 }
 .session-msg-retry-btn:hover {
@@ -20116,21 +20126,21 @@ td.usage-share-col {
 .task-session-pill-running {
   color: #fff;
   background: var(--success);
-  box-shadow: 0 1px 3px rgba(52, 199, 89, 0.3);
+  box-shadow: 0 1px 3px rgba(97, 92, 84, 0.3);
 }
 
 /* agent_complete: red — needs human review/confirm */
 .task-session-pill-agent-complete {
   color: #fff;
   background: var(--error);
-  box-shadow: 0 1px 3px rgba(255, 59, 48, 0.3);
+  box-shadow: 0 1px 3px rgba(97, 92, 84, 0.3);
 }
 
 /* error: red — session encountered an error */
 .task-session-pill-error {
   color: #fff;
   background: var(--error);
-  box-shadow: 0 1px 3px rgba(255, 59, 48, 0.3);
+  box-shadow: 0 1px 3px rgba(97, 92, 84, 0.3);
 }
 
 /* waiting: red + pulse — CLI paused on a permission/AskUserQuestion prompt.
@@ -20138,7 +20148,7 @@ td.usage-share-col {
 .task-session-pill-waiting {
   color: #fff;
   background: var(--error);
-  box-shadow: 0 1px 3px rgba(255, 59, 48, 0.3);
+  box-shadow: 0 1px 3px rgba(97, 92, 84, 0.3);
   animation: pill-waiting-pulse 1.6s ease-in-out infinite;
 }
 @keyframes pill-waiting-pulse {
@@ -20150,14 +20160,14 @@ td.usage-share-col {
 .task-session-pill-completed {
   color: #fff;
   background: var(--accent);
-  box-shadow: 0 1px 3px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 1px 3px rgba(244, 91, 37, 0.3);
 }
 
 /* wait: red — session blocked / errored, needs a look */
 .task-session-pill-wait {
   color: #fff;
   background: var(--error);
-  box-shadow: 0 1px 3px rgba(255, 59, 48, 0.3);
+  box-shadow: 0 1px 3px rgba(97, 92, 84, 0.3);
 }
 
 .task-session-pill-history {
@@ -20249,7 +20259,7 @@ td.usage-share-col {
 }
 
 .execute-plan-toggle:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .execute-plan-arrow {
@@ -20425,7 +20435,7 @@ td.usage-share-col {
 
 .session-action-chip:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* A header chip that cannot act yet keeps its place and its text and only stops
@@ -20446,7 +20456,7 @@ td.usage-share-col {
 
 .session-action-chip-active {
   background: var(--accent-subtle, color-mix(in srgb, var(--accent) 12%, transparent));
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .session-action-chip-count {
@@ -20643,7 +20653,7 @@ td.usage-share-col {
   border-top: 1px solid var(--border);
 }
 .sfe-changed-badge {
-  color: var(--accent);
+  color: var(--fg);
   font-size: 10px;
   font-weight: 600;
 }
@@ -20795,7 +20805,7 @@ td.usage-share-col {
 
 .session-file-explorer-node.selected {
   background: var(--accent-subtle, color-mix(in srgb, var(--accent) 12%, transparent));
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .sfe-arrow {
@@ -20887,7 +20897,7 @@ td.usage-share-col {
 
 .sfe-error {
   padding: 6px 12px;
-  color: var(--error, #ff3b30);
+  color: var(--error, #615C54);
   font-size: 12px;
   white-space: normal;
 }
@@ -20934,7 +20944,7 @@ td.usage-share-col {
   padding: 2px 8px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent) 14%, var(--bg));
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   font-weight: 600;
   pointer-events: none;
@@ -20959,7 +20969,7 @@ td.usage-share-col {
 }
 
 .session-pill-status-dot.dot-review {
-  background: #AF52DE;
+  background: #615C54;
 }
 
 .session-pill-status-dot.dot-done {
@@ -20980,7 +20990,7 @@ td.usage-share-col {
 }
 
 .session-id-pill.session-pill-active:hover {
-  background: rgba(52, 199, 89, 0.1);
+  background: rgba(97, 92, 84, 0.1);
 }
 
 /* Inline session chat container on TaskDetailPage */
@@ -21024,7 +21034,7 @@ td.usage-share-col {
 .task-session-tab.active {
   background: var(--accent-subtle);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* ===== Tag Chips & Editor ===== */
@@ -21037,7 +21047,7 @@ td.usage-share-col {
   line-height: 1.2;
   padding: 2px 7px;
   border-radius: 8px;
-  background: rgba(175, 82, 222, 0.1);
+  background: rgba(97, 92, 84, 0.1);
   color: #8944AB;
   font-weight: 500;
   white-space: nowrap;
@@ -21045,8 +21055,8 @@ td.usage-share-col {
 }
 
 :root[data-theme="dark"] .tag-chip {
-  background: rgba(175, 82, 222, 0.18);
-  color: #BF5AF2;
+  background: rgba(97, 92, 84, 0.18);
+  color: #615C54;
 }
 
 .tag-chip-inline {
@@ -21086,7 +21096,7 @@ a.tag-chip:hover {
 }
 :root[data-theme="dark"] a.tag-chip,
 :root[data-theme="dark"] a.tag-chip:hover {
-  color: #BF5AF2;
+  color: #615C54;
 }
 .tag-chip-link {
   display: inline-flex;
@@ -21107,19 +21117,19 @@ a.tag-chip:focus-visible,
   cursor: pointer;
 }
 .tag-chip-clickable:hover {
-  background: rgba(175, 82, 222, 0.18);
+  background: rgba(97, 92, 84, 0.18);
 }
 :root[data-theme="dark"] .tag-chip-clickable:hover {
-  background: rgba(175, 82, 222, 0.28);
+  background: rgba(97, 92, 84, 0.28);
 }
 
 .tag-chip-active {
-  background: rgba(175, 82, 222, 0.25);
-  outline: 1.5px solid rgba(175, 82, 222, 0.5);
+  background: rgba(97, 92, 84, 0.25);
+  outline: 1.5px solid rgba(97, 92, 84, 0.5);
 }
 :root[data-theme="dark"] .tag-chip-active {
-  background: rgba(175, 82, 222, 0.35);
-  outline-color: rgba(191, 90, 242, 0.5);
+  background: rgba(97, 92, 84, 0.35);
+  outline-color: rgba(97, 92, 84, 0.5);
 }
 
 /* A tag the display rules keep off task pills: still listed in the tag editor, muted and dashed. */
@@ -21149,7 +21159,7 @@ a.tag-chip:focus-visible,
 }
 .tag-chip-remove:hover {
   opacity: 1;
-  background: rgba(175, 82, 222, 0.2);
+  background: rgba(97, 92, 84, 0.2);
 }
 
 .task-card-tags {
@@ -21382,7 +21392,7 @@ a.tag-chip:focus-visible,
 }
 
 .triage-session-task-ref a.task-link {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   font-weight: 500;
 }
@@ -21459,12 +21469,12 @@ a.tag-chip:focus-visible,
 .todo-panel-tab-triage {
   flex-shrink: 0;
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .todo-panel-tab-triage:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .todo-panel-tab-triage.todo-panel-tab-active {
@@ -21538,7 +21548,7 @@ a.tag-chip:focus-visible,
 
 .dock-quick-add-btn:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
 }
 
@@ -21669,7 +21679,7 @@ a.tag-chip:focus-visible,
 .dock-task-session-label {
   font-size: 9px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .dock-task-phase-badge {
@@ -21723,7 +21733,7 @@ a.tag-chip:focus-visible,
 }
 
 .dock-task-expand:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .dock-task-unpin {
@@ -21811,7 +21821,7 @@ a.tag-chip:focus-visible,
 }
 
 .settings-banner-success {
-  background: rgba(52, 199, 89, 0.1);
+  background: rgba(97, 92, 84, 0.1);
   color: var(--success);
 }
 
@@ -21889,8 +21899,8 @@ a.tag-chip:focus-visible,
 .suggest-accuracy-verdict { flex: 0 0 auto; color: var(--fg-muted); white-space: nowrap; }
 /* Kept reads calm, an override reads as the finding — the whole point of the
    panel is spotting the second kind at a glance. */
-.suggest-accuracy-entry.verdict-changed { background: color-mix(in srgb, var(--warning, #ff9f0a) 16%, transparent); }
-.suggest-accuracy-entry.verdict-changed .suggest-accuracy-verdict { color: var(--warning, #ff9f0a); }
+.suggest-accuracy-entry.verdict-changed { background: color-mix(in srgb, var(--warning, #615C54) 16%, transparent); }
+.suggest-accuracy-entry.verdict-changed .suggest-accuracy-verdict { color: var(--warning, #615C54); }
 .suggest-accuracy-entry.verdict-dropped { background: color-mix(in srgb, var(--fg-muted) 16%, transparent); }
 
 /* Secret, switch, number, key/value, status and collapsible controls moved to
@@ -21916,7 +21926,7 @@ a.tag-chip:focus-visible,
 }
 
 .btn-danger:hover {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 /* ===== AI Providers Section ===== */
@@ -21989,12 +21999,12 @@ a.tag-chip:focus-visible,
 }
 
 .provider-badge.auto {
-  background: rgba(0, 122, 255, 0.1);
-  color: var(--accent);
+  background: rgba(244, 91, 37, 0.1);
+  color: var(--fg);
 }
 
 .provider-badge.configured {
-  background: rgba(52, 199, 89, 0.1);
+  background: rgba(97, 92, 84, 0.1);
   color: var(--success);
 }
 
@@ -22181,7 +22191,7 @@ a.tag-chip:focus-visible,
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--success, #34c759);
+  background: var(--success, #615C54);
   flex-shrink: 0;
 }
 
@@ -22240,7 +22250,7 @@ a.tag-chip:focus-visible,
   padding: 2px 10px;
   border-radius: 4px;
   background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -22282,7 +22292,7 @@ a.tag-chip:focus-visible,
 .qp-option-selected {
   border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 12%, var(--bg));
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 500;
 }
 
@@ -22356,7 +22366,7 @@ a.tag-chip:focus-visible,
   border-radius: 8px;
   background: color-mix(in srgb, var(--accent) 8%, var(--card-bg));
   border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
-  color: var(--accent);
+  color: var(--fg);
   font-size: 13px;
   font-weight: 500;
   animation: questionPulse 2s ease-in-out infinite;
@@ -22369,8 +22379,8 @@ a.tag-chip:focus-visible,
   padding: 6px 12px;
   margin: 6px 0;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--success, #34c759) 8%, var(--card-bg));
-  border: 1px solid color-mix(in srgb, var(--success, #34c759) 25%, var(--border));
+  background: color-mix(in srgb, var(--success, #615C54) 8%, var(--card-bg));
+  border: 1px solid color-mix(in srgb, var(--success, #615C54) 25%, var(--border));
   color: var(--fg-muted);
   font-size: 12px;
 }
@@ -22451,7 +22461,7 @@ a.tag-chip:focus-visible,
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-error, #ff3b30);
+  background: var(--color-error, #615C54);
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -22488,7 +22498,7 @@ a.tag-chip:focus-visible,
   padding: 6px 16px;
   border-radius: 6px;
   border: none;
-  background: var(--accent, #007AFF);
+  background: var(--accent, #F45B25);
   color: #fff;
   font-size: 12px;
   font-weight: 500;
@@ -22496,7 +22506,7 @@ a.tag-chip:focus-visible,
   transition: background 0.15s;
 }
 .pending-session-retry-btn:hover {
-  background: var(--accent-hover, #0066D6);
+  background: var(--accent-hover, #F45B25);
 }
 
 /* ===== Draft Session Panel ("+" → an empty column, nothing on the server) =====
@@ -22604,7 +22614,7 @@ a.tag-chip:focus-visible,
 .draft-launch-pills .session-action-chip:hover,
 .draft-launch-pills .session-action-chip-active {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 /* No MetaFooter lives inside the stack any more (the tier · More row was removed
    2026-09-15, see DraftLaunchBar); the picker's own footer renders in the POPOUT
@@ -22717,7 +22727,7 @@ a.tag-chip:focus-visible,
 .draft-quick-chip:hover {
   background: var(--accent-subtle);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 .draft-quick-chip:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
@@ -22729,7 +22739,7 @@ a.tag-chip:focus-visible,
 .draft-quick-chip-active:hover {
   background: var(--accent-subtle);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
   cursor: default;
 }
 
@@ -22741,7 +22751,7 @@ a.tag-chip:focus-visible,
    field's authority flag). */
 .draft-ai-badge {
   margin-left: 4px;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 9px;
   line-height: 1;
   flex-shrink: 0;
@@ -22847,14 +22857,14 @@ a.tag-chip:focus-visible,
   color: var(--fg-muted);
   user-select: none;
 }
-.draft-decisions-key-mark { color: var(--accent); }
+.draft-decisions-key-mark { color: var(--fg); }
 /* Ask Walnut: chips and More share one wrapping row. */
 .draft-walnut-meta-row .draft-decision-row { display: contents; }
 /* The draft menu's priority buttons carry words ("!! Immediate"): let them wrap,
    and keep the chip's casing (.badge uppercases), so both read the same words. */
 .draft-task-menu .task-kebab-priority-options { flex-wrap: wrap; }
 .draft-task-menu .task-kebab-priority-options .badge { text-transform: none; }
-.task-kebab-walnut-pick { color: var(--accent); }
+.task-kebab-walnut-pick { color: var(--fg); }
 @keyframes draft-decision-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -22916,7 +22926,7 @@ a.tag-chip:focus-visible,
   border: none;
   border-radius: 17px;
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   font-family: inherit;
   font-size: 11px;
   font-weight: 600;
@@ -22964,7 +22974,7 @@ a.tag-chip:focus-visible,
   padding: 3px 10px;
   border-radius: 5px;
   border: none;
-  background: var(--accent, #007AFF);
+  background: var(--accent, #F45B25);
   color: #fff;
   font-size: 11px;
   font-weight: 500;
@@ -22973,7 +22983,7 @@ a.tag-chip:focus-visible,
   white-space: nowrap;
 }
 .session-retry-btn:hover {
-  background: var(--accent-hover, #0066D6);
+  background: var(--accent-hover, #F45B25);
 }
 .session-retry-btn:disabled {
   opacity: 0.6;
@@ -23067,7 +23077,7 @@ a.tag-chip:focus-visible,
 
 .quick-access-pill:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .quick-access-pill-icon {
@@ -23174,7 +23184,7 @@ a.tag-chip:focus-visible,
 }
 .todo-launcher-tab:hover { color: var(--fg-secondary); }
 .todo-launcher-tab.active {
-  color: var(--accent);
+  color: var(--fg);
   border-bottom-color: var(--accent);
 }
 .todo-launcher-popover .session-path-selector,
@@ -23209,7 +23219,7 @@ a.tag-chip:focus-visible,
 
 .mode-toggle-pill:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .mode-toggle-pill.plan-active {
@@ -23347,7 +23357,7 @@ a.tag-chip:focus-visible,
   padding: 2px 8px;
   border-radius: 10px;
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   font-weight: 500;
 }
@@ -23706,20 +23716,20 @@ a.tag-chip:focus-visible,
   white-space: nowrap;
 }
 .skill-source-badge.claude {
-  background: rgba(88, 86, 214, 0.12);
-  color: #5856D6;
+  background: rgba(97, 92, 84, 0.12);
+  color: #615C54;
 }
 .skill-source-badge.walnut {
-  background: rgba(255, 149, 0, 0.12);
-  color: #FF9500;
+  background: rgba(97, 92, 84, 0.12);
+  color: #615C54;
 }
 .skill-source-badge.workspace {
-  background: rgba(52, 199, 89, 0.12);
-  color: #34C759;
+  background: rgba(97, 92, 84, 0.12);
+  color: #615C54;
 }
 .skill-source-badge.plugin {
-  background: rgba(10, 132, 255, 0.12);
-  color: #0A84FF;
+  background: rgba(244, 91, 37, 0.12);
+  color: #F45B25;
 }
 
 .skill-card-sizes,
@@ -23753,7 +23763,7 @@ a.tag-chip:focus-visible,
   border-radius: 10px;
   font-size: 10px;
   font-weight: 500;
-  background: rgba(255, 59, 48, 0.1);
+  background: rgba(97, 92, 84, 0.1);
   color: var(--error);
 }
 
@@ -23969,7 +23979,7 @@ a.tag-chip:focus-visible,
   cursor: pointer;
 }
 .btn-danger-outline:hover {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
 }
 
 .btn-danger {
@@ -24011,7 +24021,7 @@ a.tag-chip:focus-visible,
 }
 
 .skill-form-error {
-  background: rgba(255, 59, 48, 0.08);
+  background: rgba(97, 92, 84, 0.08);
   color: var(--error);
   padding: 8px 12px;
   border-radius: var(--radius-sm);
@@ -24132,7 +24142,7 @@ a.tag-chip:focus-visible,
 .notes-ai-toggle.active {
   background: color-mix(in srgb, var(--accent) 14%, transparent);
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* Divider doubles as the chat pane's drag-resize handle: thin visual line,
@@ -24313,7 +24323,7 @@ a.tag-chip:focus-visible,
 }
 .notes-chat-switcher-item:hover { background: var(--bg-hover); }
 .notes-chat-switcher-item.active { background: color-mix(in srgb, var(--accent) 10%, transparent); font-weight: 600; }
-.notes-chat-switcher-item.error { color: var(--color-error, #ff3b30); }
+.notes-chat-switcher-item.error { color: var(--color-error, #615C54); }
 .notes-chat-switcher-item-label {
   min-width: 0;
   overflow: hidden;
@@ -24339,7 +24349,7 @@ a.tag-chip:focus-visible,
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 10%, transparent);
   border-radius: 4px;
   padding: 1.5px 5px;
@@ -24397,7 +24407,7 @@ a.tag-chip:focus-visible,
   color: var(--fg-muted);
   padding: 6px 2px;
 }
-.notes-session-chat-badge.pending { color: var(--color-warning, #ff9500); }
+.notes-session-chat-badge.pending { color: var(--color-warning, #615C54); }
 
 /* ─── Tree Panel ─── */
 
@@ -24506,7 +24516,7 @@ a.tag-chip:focus-visible,
 
 .notes-tree-item.selected {
   background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
+  color: var(--fg);
 }
 
 /* Drag-to-move (#5): dim the dragged node; highlight the folder/root drop target. */
@@ -24777,7 +24787,7 @@ a.tag-chip:focus-visible,
   border-radius: 3px;
 }
 .notes-breadcrumb-link:hover {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: underline;
 }
 
@@ -24801,7 +24811,7 @@ a.tag-chip:focus-visible,
 }
 
 .notes-save-status.saving {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .notes-save-status.saved {
@@ -24883,7 +24893,7 @@ a.tag-chip:focus-visible,
 
 .notes-backlink-name {
   font-size: 13px;
-  color: var(--accent);
+  color: var(--fg);
   display: block;
 }
 
@@ -24952,7 +24962,7 @@ a.tag-chip:focus-visible,
 
 .notes-wikilink-create-label {
   font-size: 13px;
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 500;
 }
 
@@ -25002,7 +25012,7 @@ a.tag-chip:focus-visible,
   padding: 6px 12px;
   background: none;
   border: none;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 11px;
   cursor: pointer;
   text-align: left;
@@ -25028,11 +25038,11 @@ a.tag-chip:focus-visible,
 }
 
 .edit-diff-line--removed {
-  background: rgba(255, 59, 48, 0.12);
+  background: rgba(97, 92, 84, 0.12);
 }
 
 .edit-diff-line--added {
-  background: rgba(52, 199, 89, 0.12);
+  background: rgba(97, 92, 84, 0.12);
 }
 
 .edit-diff-prefix {
@@ -25044,11 +25054,11 @@ a.tag-chip:focus-visible,
 }
 
 .edit-diff-line--removed .edit-diff-prefix {
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
 }
 
 .edit-diff-line--added .edit-diff-prefix {
-  color: var(--success, #34c759);
+  color: var(--success, #615C54);
 }
 
 .edit-diff-text {
@@ -25059,7 +25069,7 @@ a.tag-chip:focus-visible,
 .edit-diff-error {
   padding: 6px 10px;
   font-size: 11px;
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
   border-top: 1px solid var(--border);
 }
 
@@ -25068,7 +25078,7 @@ a.tag-chip:focus-visible,
    ═══════════════════════════════════════════════════════════════ */
 
 a.file-link {
-  color: var(--accent);
+  color: var(--fg);
   text-decoration: none;
   cursor: pointer;
   border-bottom: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
@@ -25161,7 +25171,7 @@ a.file-link:hover {
 .file-viewer-line {
   font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace);
   font-size: 12px;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .file-viewer-size {
@@ -25172,7 +25182,7 @@ a.file-link:hover {
 
 .file-viewer-truncated {
   font-size: 10px;
-  color: var(--warning, #ff9500);
+  color: var(--warning, #615C54);
   flex-shrink: 0;
 }
 
@@ -25234,7 +25244,7 @@ a.file-link:hover {
 }
 
 .file-viewer-error {
-  color: var(--danger, #ff3b30);
+  color: var(--danger, #615C54);
 }
 
 .file-viewer-code {
@@ -25275,14 +25285,14 @@ a.file-link:hover {
 }
 
 .fv-html-tab.active {
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 /* Edit mode: Save is the primary action (filled), the exit is quiet, and a dot
    marks unsaved work so a half-typed file is never mistaken for a saved one. */
 .fv-html-tab.fv-edit-btn:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 .fv-html-tab.fv-save-btn {
   color: #fff;
@@ -25448,7 +25458,7 @@ a.file-link:hover {
 }
 .fv-search-case.active {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 .fv-search-nav:disabled { opacity: 0.35; cursor: default; }
@@ -25580,7 +25590,7 @@ a.file-link:hover {
 }
 /* The file the lookup came FROM — colored so "where am I" reads instantly. */
 .ref-panel-file-current {
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 8%, transparent);
   border-radius: 4px;
 }
@@ -26156,7 +26166,7 @@ a.file-link:hover {
 
 .session-terminal-host {
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
   flex-shrink: 0;
 }
 
@@ -26170,13 +26180,13 @@ a.file-link:hover {
   background: color-mix(in srgb, var(--fg-muted) 18%, transparent);
   color: var(--fg-muted);
 }
-.session-terminal-status-ready { background: color-mix(in srgb, var(--success, #34c759) 22%, transparent); color: var(--success, #34c759); }
-.session-terminal-status-connecting { background: color-mix(in srgb, var(--warning, #ff9500) 22%, transparent); color: var(--warning, #ff9500); }
+.session-terminal-status-ready { background: color-mix(in srgb, var(--success, #615C54) 22%, transparent); color: var(--success, #615C54); }
+.session-terminal-status-connecting { background: color-mix(in srgb, var(--warning, #615C54) 22%, transparent); color: var(--warning, #615C54); }
 .session-terminal-status-error,
 .session-terminal-status-exited,
-.session-terminal-status-ssh_failed { background: color-mix(in srgb, var(--danger, #ff3b30) 22%, transparent); color: var(--danger, #ff3b30); }
+.session-terminal-status-ssh_failed { background: color-mix(in srgb, var(--danger, #615C54) 22%, transparent); color: var(--danger, #615C54); }
 /* "Not persistent": same pill as the status, in the warning tone. */
-.session-terminal-plain-badge { background: color-mix(in srgb, var(--warning, #ff9500) 22%, transparent); color: var(--warning, #ff9500); cursor: help; }
+.session-terminal-plain-badge { background: color-mix(in srgb, var(--warning, #615C54) 22%, transparent); color: var(--warning, #615C54); cursor: help; }
 
 /* One-line notice above a plain (non-persistent) terminal. */
 .session-terminal-plain-notice {
@@ -26184,7 +26194,7 @@ a.file-link:hover {
   padding: 6px 12px;
   font-size: 12px;
   color: var(--fg-primary);
-  background: color-mix(in srgb, var(--warning, #ff9500) 10%, var(--bg));
+  background: color-mix(in srgb, var(--warning, #615C54) 10%, var(--bg));
   border-bottom: 1px solid var(--border);
 }
 .session-terminal-plain-row { display: flex; align-items: center; gap: 8px; }
@@ -26192,7 +26202,7 @@ a.file-link:hover {
 .session-terminal-plain-text code,
 .session-terminal-plain-details pre,
 .session-terminal-ssh-detail { font-family: var(--font-mono, 'SF Mono', 'Fira Code', monospace); }
-.session-terminal-plain-text code { color: var(--accent); }
+.session-terminal-plain-text code { color: var(--fg); }
 .session-terminal-plain-details { margin-top: 4px; color: var(--fg-muted); }
 .session-terminal-plain-details summary { cursor: pointer; }
 .session-terminal-plain-details pre,
@@ -26229,8 +26239,8 @@ a.file-link:hover {
 }
 .session-terminal-btn:hover { background: var(--bg-hover, var(--bg-secondary)); }
 .session-terminal-btn-kill {
-  border-color: color-mix(in srgb, var(--danger, #ff3b30) 40%, transparent);
-  color: var(--danger, #ff3b30);
+  border-color: color-mix(in srgb, var(--danger, #615C54) 40%, transparent);
+  color: var(--danger, #615C54);
 }
 
 .session-terminal-close {
@@ -26266,8 +26276,8 @@ a.file-link:hover {
   gap: 10px;
   padding: 8px 12px;
   font-size: 12px;
-  color: var(--danger, #ff3b30);
-  background: color-mix(in srgb, var(--danger, #ff3b30) 10%, transparent);
+  color: var(--danger, #615C54);
+  background: color-mix(in srgb, var(--danger, #615C54) 10%, transparent);
   border-top: 1px solid var(--border);
 }
 
@@ -26351,7 +26361,7 @@ a.file-link:hover {
 
 .session-code-host {
   font-size: 11px;
-  color: var(--accent);
+  color: var(--fg);
   flex-shrink: 0;
 }
 
@@ -26607,7 +26617,7 @@ a.file-link:hover {
 .side-question-pill:hover:not(:disabled),
 .side-question-pill.is-open {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 .side-question-pill:disabled { opacity: 0.5; cursor: default; }
 .side-question-count {
@@ -26788,7 +26798,7 @@ a.file-link:hover {
 }
 .side-thread-chip:hover { color: var(--fg); border-color: var(--fg-muted); }
 .side-thread-chip.is-active {
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
   background: var(--accent-subtle);
 }
@@ -27001,7 +27011,7 @@ a.file-link:hover {
 }
 .app-modal-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.25);
+  box-shadow: 0 0 0 2px rgba(244, 91, 37, 0.25);
 }
 .app-modal-actions {
   display: flex;
@@ -27054,7 +27064,7 @@ a.file-link:hover {
 /* A step that names a click IS that click. Styled as a link, left-aligned with
    the prose around it, so the numbered list still reads as a list. */
 .permission-step-link {
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
 }
 .permission-step-link:hover { text-decoration: underline; }
@@ -27082,7 +27092,7 @@ a.file-link:hover {
 .permission-why { margin-top: 10px; }
 .permission-why > summary {
   cursor: pointer;
-  color: var(--accent);
+  color: var(--fg);
   font-size: 12px;
   width: fit-content;
 }
@@ -27356,7 +27366,7 @@ a.file-link:hover {
 .session-diff-base-help:hover,
 .session-diff-base-help:focus-visible {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
   outline: none;
 }
 /* Fixed-positioned (coords set inline from the chip's rect) so it escapes the
@@ -27536,7 +27546,7 @@ a.file-link:hover {
 .session-diff-rendered-toggle {
   border: 1px solid var(--accent);
   background: var(--bg);
-  color: var(--accent);
+  color: var(--fg);
   border-radius: 6px;
   padding: 3px 10px;
   font-size: 12px;
@@ -27608,7 +27618,7 @@ a.file-link:hover {
 .session-diff-tree-dir:hover,
 .session-diff-tree-file:hover { background: var(--bg-tertiary); }
 .session-diff-tree-file.is-selected { background: color-mix(in srgb, var(--accent) 18%, transparent); }
-.session-diff-tree-file.is-selected .session-diff-tree-name { color: var(--accent); font-weight: 600; }
+.session-diff-tree-file.is-selected .session-diff-tree-name { color: var(--fg); font-weight: 600; }
 
 .session-diff-tree-caret { width: 10px; color: var(--fg-muted); flex: 0 0 auto; }
 .session-diff-tree-dir-name {
@@ -27627,7 +27637,7 @@ a.file-link:hover {
   border-radius: 8px;
   flex: 0 0 auto;
 }
-.session-diff-tree-repokind.kind-cwd { color: var(--accent); }
+.session-diff-tree-repokind.kind-cwd { color: var(--fg); }
 .session-diff-tree-count { margin-left: auto; color: var(--fg-muted); font-size: 10px; flex: 0 0 auto; padding-left: 6px; }
 
 .session-diff-tree-status {
@@ -27718,7 +27728,7 @@ a.file-link:hover {
   max-height: 132px;
   overflow-y: auto;
 }
-.session-diff-ai-icon { color: var(--accent); flex: 0 0 auto; font-size: 12px; line-height: 1.55; }
+.session-diff-ai-icon { color: var(--fg); flex: 0 0 auto; font-size: 12px; line-height: 1.55; }
 .session-diff-ai-text { min-width: 0; }
 .session-diff-ai-text p { margin: 0 0 4px; }
 .session-diff-ai-text p:last-child { margin-bottom: 0; }
@@ -27733,7 +27743,7 @@ a.file-link:hover {
 .session-diff-ai-retry {
   border: none;
   background: none;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   font-size: 12.5px;
   padding: 0;
@@ -27758,7 +27768,7 @@ a.file-link:hover {
 }
 /* Tree ✦ marker for AI-triaged critical files */
 .session-diff-tree-critical {
-  color: var(--accent);
+  color: var(--fg);
   font-size: 10px;
   flex: 0 0 auto;
   margin-left: 2px;
@@ -27775,7 +27785,7 @@ a.file-link:hover {
   white-space: nowrap;
 }
 .session-diff-ai-toggle.is-active {
-  color: var(--accent);
+  color: var(--fg);
   border-color: color-mix(in srgb, var(--accent) 45%, transparent);
   background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
@@ -27828,7 +27838,7 @@ a.file-link:hover {
 .session-diff-rendered-row.is-active { background: var(--accent-subtle, rgba(31, 111, 235, 0.06)); }
 .session-diff-rendered-row.is-active > .session-diff-rendered-lineno {
   opacity: 1;
-  color: var(--accent);
+  color: var(--fg);
 }
 /* While dragging the number column, suppress native text selection in the body
    so the drag reads as a range pick, not a text highlight. */
@@ -27907,7 +27917,7 @@ a.file-link:hover {
 }
 .session-diff-rendered .markdown-body th { background: var(--bg-tertiary); font-weight: 600; }
 .session-diff-rendered .markdown-body tr:nth-child(2n) td { background: var(--bg-secondary, var(--bg-tertiary)); }
-.session-diff-rendered .markdown-body a { color: var(--accent); text-decoration: none; }
+.session-diff-rendered .markdown-body a { color: var(--fg); text-decoration: none; }
 .session-diff-rendered .markdown-body a:hover { text-decoration: underline; }
 .session-diff-rendered .markdown-body hr {
   height: 1px; border: 0; background: var(--border); margin: 24px 0;
@@ -28239,7 +28249,7 @@ a.file-link:hover {
   font-size: 11px;
   font-family: var(--font-mono);
   line-height: 1.7;
-  color: var(--accent);
+  color: var(--fg);
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -28426,7 +28436,7 @@ a.file-link:hover {
 /* "Send now" is the secondary send option — outlined accent, not filled. */
 .session-diff-comment-sendnow {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
 }
 /* "Add comment" is the primary (default) option — filled accent. */
@@ -28828,7 +28838,7 @@ a.file-link:hover {
 
 /* ── walnut-trigger: check script (card line + form section) ── */
 .routine-trigger-badge {
-  color: var(--accent);
+  color: var(--fg);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
   font-weight: 600;
 }
@@ -28851,7 +28861,7 @@ a.file-link:hover {
   max-width: 100%;
 }
 
-.routine-check-status.fired { color: var(--accent); }
+.routine-check-status.fired { color: var(--fg); }
 .routine-check-status.error { color: var(--error); }
 
 .routine-check-box {
@@ -28915,7 +28925,7 @@ a.file-link:hover {
   border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   border-radius: 4px;
   background: color-mix(in srgb, var(--accent) 10%, transparent);
-  color: var(--accent);
+  color: var(--fg);
   font: inherit;
   font-size: 10px;
   font-weight: 600;
@@ -28958,7 +28968,7 @@ a.file-link:hover {
   font: inherit;
   font-size: 11px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
   background: transparent;
   border: 0;
   padding: 0;
@@ -28999,7 +29009,7 @@ a.file-link:hover {
   white-space: nowrap;
 }
 .trigger-jobs-last { font-size: 11px; color: var(--fg-secondary); }
-.trigger-jobs-last[data-outcome="fired"] { color: var(--accent); }
+.trigger-jobs-last[data-outcome="fired"] { color: var(--fg); }
 .trigger-jobs-last[data-outcome="error"] { color: var(--error); }
 .trigger-jobs-error { font-size: 11px; color: var(--error); }
 .trigger-jobs-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
@@ -29023,8 +29033,8 @@ a.file-link:hover {
    the difference between "armed and working" and "armed, unproven". */
 .trigger-jobs-tally { font-size: 11px; color: var(--fg-secondary); }
 .routine-check-tally { color: var(--fg-muted); }
-.routine-check-tally[data-fired="true"] { color: var(--accent); font-weight: 600; }
-.trigger-jobs-tally[data-fired="true"] { color: var(--accent); font-weight: 600; }
+.routine-check-tally[data-fired="true"] { color: var(--fg); font-weight: 600; }
+.trigger-jobs-tally[data-fired="true"] { color: var(--fg); font-weight: 600; }
 
 .trigger-jobs-fold { margin-top: 2px; }
 .trigger-jobs-fold-toggle {
@@ -29079,7 +29089,7 @@ a.file-link:hover {
 .trigger-audit-line:hover:not(:disabled) { background: var(--bg-secondary); }
 .trigger-audit-clock { flex: 0 0 auto; font-variant-numeric: tabular-nums; color: var(--fg-muted); }
 .trigger-audit-what { flex: 1 1 auto; min-width: 0; }
-.trigger-audit-row[data-outcome="fired"] .trigger-audit-what { color: var(--accent); }
+.trigger-audit-row[data-outcome="fired"] .trigger-audit-what { color: var(--fg); }
 .trigger-audit-row[data-outcome="error"] .trigger-audit-what { color: var(--error); }
 
 .trigger-audit-detail {
@@ -29172,7 +29182,7 @@ a.file-link:hover {
 }
 .cloud-pill-ready { background: color-mix(in srgb, var(--success) 18%, transparent); color: var(--success); }
 .cloud-pill-manual { background: var(--bg-secondary); color: var(--text-secondary); }
-.cloud-pill-token { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.cloud-pill-token { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--fg); }
 .cloud-pill-warn { background: color-mix(in srgb, var(--warning, #b8860b) 18%, transparent); color: var(--warning, #b8860b); }
 
 /* Configure screen. */
@@ -29213,7 +29223,7 @@ a.file-link:hover {
 
 .cloud-step-note, .cloud-step-prompt { margin: 0; font-size: 12px; color: var(--text-secondary); max-width: 62ch; }
 .cloud-step-prompt { color: var(--text); }
-.cloud-step-waiting { margin: 0; font-size: 12px; color: var(--accent); }
+.cloud-step-waiting { margin: 0; font-size: 12px; color: var(--fg); }
 .cloud-step-awaiting { padding: 10px 12px; border: 1px solid var(--accent); border-radius: 8px; margin-left: 24px; }
 .cloud-job-error { margin: 0; font-size: 13px; color: var(--danger, #d33); }
 
@@ -29585,7 +29595,7 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
 }
 .session-mode-bar .composer-model-pill:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
 }
 /* ── The material (gated): milky bg + blur, hairlines, soft shadow ── */
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) and (background: color-mix(in srgb, red 50%, transparent)) {
@@ -29808,7 +29818,7 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
 }
 
 .cal-rail-toggle.active {
-  color: var(--accent);
+  color: var(--fg);
   border-color: var(--accent);
 }
 
@@ -29949,11 +29959,11 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
   border-radius: 50%;
   background: var(--fg-muted);
 }
-.cal-rail-tier-focus { background: var(--tier-focus, var(--accent)); }
+.cal-rail-tier-focus { background: var(--tier-focus, #615C54); }
 .cal-rail-tier-satellite { background: var(--tier-satellite, var(--fg-muted)); }
 .cal-rail-tier-backlog { background: var(--tier-backlog); }
 .cal-rail-tier-wait { background: var(--tier-wait); }
-.cal-rail-tier-custom { background: var(--accent-subtle, var(--accent)); border: 1px solid var(--accent); box-sizing: border-box; }
+.cal-rail-tier-custom { background: var(--tier-custom); border: 1px solid var(--border); box-sizing: border-box; }
 
 .cal-rail-row {
   cursor: grab;
@@ -30626,12 +30636,12 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
 }
 
 .cal-side-calendars:hover {
-  color: var(--accent);
+  color: var(--fg);
   background: var(--bg-hover);
 }
 
 .cal-side-expand:hover {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .cal-side-body {
@@ -31310,7 +31320,7 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
 
 .task-start-btn:hover {
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   opacity: 1;
 }
 
@@ -31344,7 +31354,7 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
 .proj-src-chip:hover { background: var(--bg-hover); }
 .proj-src-chip.on {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--fg);
   background: var(--accent-subtle);
 }
 .proj-src-chip-dot {
@@ -31359,7 +31369,7 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
    Error/waiting are not circle colors — errors turn the whole row red via
    the phase (todo-*-needs-action) and waits show on the SessionPill. ── */
 .task-phase-icon-btn.task-circle-running, .task-quick-phase-btn.task-circle-running {
-  color: var(--accent);
+  color: var(--fg);
   animation: task-circle-pulse 1.6s ease-in-out infinite;
 }
 @keyframes task-circle-pulse {
@@ -31444,7 +31454,7 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
 .nfc-rail-badge.nfc-warn { background: var(--warning); }
 
 /* Live errors — red, one step past warn's amber. */
-.nfc-rail-badge.nfc-danger { background: var(--danger, #ff3b30); }
+.nfc-rail-badge.nfc-danger { background: var(--danger, #615C54); }
 
 /* The System zone has nothing to count — a dot marks "something in here is
    unhealthy" (failing backup, broken index) without inventing a number. */
@@ -31559,9 +31569,9 @@ button.focus-tiers-label-editable:hover { background: var(--bg-hover); }
    Same green as .notification-feed-dot--success. */
 .nfc-chip-recovered {
   flex-shrink: 0;
-  border-color: rgba(52, 199, 89, 0.4);
-  background: rgba(52, 199, 89, 0.12);
-  color: #34c759;
+  border-color: rgba(97, 92, 84, 0.4);
+  background: rgba(97, 92, 84, 0.12);
+  color: #615C54;
   font-weight: 600;
 }
 
@@ -31628,7 +31638,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   padding: 0 2px;
   cursor: pointer;
   font-size: 10.5px;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .nfc-cat-showall:hover { text-decoration: underline; }
@@ -31689,7 +31699,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   padding: 0;
   cursor: pointer;
   font-size: 12px;
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .nfc-card-pre {
@@ -31733,7 +31743,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   padding: 0 2px;
   font-size: 10.5px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -31771,14 +31781,14 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
 /* The producer's own remedy (a plugin's "Sign in"): the one filled pill on the
    card, because it is the thing to do, not one of several optional tools. */
 .nfc-card-action--primary {
-  border-color: var(--accent, #0a84ff);
-  background: var(--accent, #0a84ff);
+  border-color: var(--accent, #F45B25);
+  background: var(--accent, #F45B25);
   color: var(--accent-fg, #fff);
   font-weight: 600;
 }
 
 /* The primary of the pair — starting the repair is the card's main offer. */
-.nfc-fix-start { color: var(--accent); }
+.nfc-fix-start { color: var(--fg); }
 
 /* …and the secondary is a plain text button: "Fix again" only matters once a
    session already exists, so it must not compete with "Open fix session". */
@@ -31850,7 +31860,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
 .nfc-answer-opt.nfc-picked {
   border-color: var(--accent);
   background: var(--accent-subtle);
-  color: var(--accent);
+  color: var(--fg);
   font-weight: 600;
 }
 
@@ -32093,7 +32103,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
 
 .link-button {
   padding: 0;
-  color: var(--accent);
+  color: var(--fg);
   font-size: inherit;
 }
 
@@ -32335,7 +32345,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
 }
 
 .create-plugin-links a {
-  color: var(--accent);
+  color: var(--fg);
   font-size: 13px;
 }
 
@@ -32359,7 +32369,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   color: var(--fg-muted);
   opacity: 0.75;
 }
-.todo-pinned-stale-fold:hover { opacity: 1; color: var(--accent); }
+.todo-pinned-stale-fold:hover { opacity: 1; color: var(--fg); }
 .todo-pinned-stale-fold svg { width: 10px; height: 10px; margin-right: 4px; vertical-align: -1px; }
 
 /* Completed-results toggle chip: rides the right edge of the section-tab strip
@@ -32379,7 +32389,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   font-size: 11px;
   color: var(--fg-muted);
 }
-.todo-search-done-reveal:hover { color: var(--accent); border-color: var(--accent); }
+.todo-search-done-reveal:hover { color: var(--fg); border-color: var(--accent); }
 
 /* ── Agent task search (✦ AI section pinned atop the task panel) ─────────── */
 .agent-search-panel {
@@ -32405,7 +32415,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   flex-wrap: wrap;
   row-gap: 4px;
 }
-.agent-search-badge { color: var(--accent); font-size: 11px; }
+.agent-search-badge { color: var(--fg); font-size: 11px; }
 .agent-search-label { font-weight: 600; color: var(--fg-muted); font-size: 11.5px; white-space: nowrap; }
 .agent-search-elapsed { color: var(--fg-muted); font-size: 11px; opacity: 0.8; white-space: nowrap; }
 /* "no matches" on a finished search. Looks like the loading ticker, but a class of
@@ -32446,7 +32456,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   padding: 0 2px;
   opacity: 0.6;
 }
-.agent-search-toggle:hover { opacity: 1; color: var(--accent); }
+.agent-search-toggle:hover { opacity: 1; color: var(--fg); }
 /* The one-click hand-off to a full Ask Walnut session on the same question. A
    small outlined chip, not a ghost glyph: it is an action, unlike the toggle. */
 .agent-search-open-session {
@@ -32456,7 +32466,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
   border-radius: 6px;
   background: none;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   font-size: 11px;
   line-height: 1;
@@ -32525,7 +32535,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
 }
 .agent-search-progress-line::before {
   content: '·';
-  color: var(--accent);
+  color: var(--fg);
   margin-right: 6px;
 }
 .agent-search-progress-line.is-pending { animation: walnut-ai-shimmer 1.4s ease-in-out infinite; }
@@ -32559,8 +32569,8 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   transition: background 0.12s;
 }
 .agent-search-row:hover { background: var(--hover-bg, rgba(0,0,0,0.04)); }
-.agent-search-row.is-needs-action { background: rgba(255, 59, 48, 0.08); }
-.agent-search-row.is-needs-action:hover { background: rgba(255, 59, 48, 0.14); }
+.agent-search-row.is-needs-action { background: rgba(97, 92, 84, 0.08); }
+.agent-search-row.is-needs-action:hover { background: rgba(97, 92, 84, 0.14); }
 /* The circle is a span inside the row button (a button can't nest a button);
    it borrows .task-phase-icon-btn for colour, without its own hover. */
 .agent-search-row-circle { pointer-events: none; }
@@ -32585,7 +32595,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
 .agent-search-retry {
   border: none;
   background: none;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   font-size: 12px;
   padding: 0;
@@ -32775,7 +32785,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   border: none;
   border-top: 1px solid var(--border);
   background: none;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   text-align: left;
   font-size: 12px;
@@ -32840,7 +32850,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   border: none;
   background: none;
   border-radius: 6px;
-  color: var(--accent);
+  color: var(--fg);
   cursor: pointer;
   font-size: 12px;
   white-space: nowrap;
@@ -32855,7 +32865,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   pointer-events: auto;
 }
 
-.msg-pin-btn.is-pinned { color: var(--accent); }
+.msg-pin-btn.is-pinned { color: var(--fg); }
 
 /* The time reads as an age; the exact stamp rides a hover tooltip, because
    "how long ago" is the question a transcript actually gets asked. */
@@ -33118,7 +33128,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   color: var(--fg-muted);
 }
 
-.wn-context-menu-check { color: var(--accent); }
+.wn-context-menu-check { color: var(--fg); }
 
 .wn-context-menu-label {
   flex: 1;
@@ -33196,7 +33206,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   /* The glyph is 13px on a 16px line; -2px puts its middle on the text's middle without changing the
      row's height. `vertical-align` and not flex, because the label is a text box with an ellipsis. */
   vertical-align: -2px;
-  color: var(--accent);
+  color: var(--fg);
 }
 .wn-context-menu-item:disabled .wn-context-ai-mark { color: inherit; }
 
@@ -33318,7 +33328,7 @@ button.nfc-cat-drill:hover { color: var(--fg); text-decoration: underline; }
   flex-shrink: 0;
   font-size: 12px;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--fg);
   background: none;
   border: none;
   padding: 0 2px;

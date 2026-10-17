@@ -209,7 +209,7 @@ export function SettingsIcon({ glyph, size = 13, className }: { glyph: SettingsG
 }
 
 /** Tints a plugin panel tile may take, in hash order. */
-export const PLUGIN_TINTS = ['#FF9500', '#34C759', '#5AC8FA', '#AF52DE', '#FF2D55', '#A2845E'] as const
+export const PLUGIN_TINTS = ['#615C54', '#615C54', '#F45B25', '#615C54', '#615C54', '#615C54'] as const
 
 export function hashPluginId(id: string): number {
   let h = 0

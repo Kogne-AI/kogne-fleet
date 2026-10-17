@@ -28,6 +28,7 @@ import { useAttentionDots } from '@/hooks/useAttentionDots';
 import { useLocalClaudeRecheck } from '@/utils/local-claude-recheck';
 import { hostSettingsHref } from '@/utils/host-settings-nav';
 import { HostStatusDot } from '@/components/sessions/path-selector/HostStatusDot';
+import { SidebarHeader } from './sidebar-header';
 import { HOME_CHAT_VISIBLE_DEFAULT, readHomeChatVisible, showHomeChatToggle } from '@/pages/home-panel-flags';
 import '@/styles/attention-banner.css';
 import '@/styles/bell-dot.css';
@@ -102,7 +103,7 @@ export function Sidebar({
   const [chatVisible, setChatVisible] = useState<boolean>(
     () => readHomeChatVisible(localStorage)
   );
-  // The Ask Walnut toggle itself: absent until the chat spot has been opened once
+  // The Ask Fleet toggle itself: absent until the chat spot has been opened once
   // (home-panel-flags.ts). Flips on the first open and never back within a load.
   const [chatToggleShown, setChatToggleShown] = useState<boolean>(
     () => showHomeChatToggle(localStorage, readHomeChatVisible(localStorage))
@@ -175,11 +176,11 @@ export function Sidebar({
         <button
           className={`sidebar-link sidebar-panel-toggle${chatVisible ? ' active' : ''}`}
           onClick={handleToggleChat}
-          aria-label="Ask Walnut"
-          title={collapsed ? 'Ask Walnut' : undefined}
+          aria-label="Ask Fleet"
+          title={collapsed ? 'Ask Fleet' : undefined}
         >
           <ChatBubbleIcon />
-          <span className="sidebar-label">Ask Walnut</span>
+          <span className="sidebar-label">Ask Fleet</span>
         </button>
       )}
       <button
@@ -264,19 +265,7 @@ export function Sidebar({
       aria-hidden={isMobile && !open ? true : undefined}
       inert={isMobile && !open}
     >
-      <div className="sidebar-header">
-        <button
-          className="sidebar-collapse-btn"
-          onClick={onToggleCollapse}
-          aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        >
-          <HamburgerIcon />
-        </button>
-        <span className="sidebar-label">
-          <WalnutIcon /> Walnut
-        </span>
-      </div>
+      <SidebarHeader collapsed={collapsed} onToggleCollapse={onToggleCollapse} />
       <nav className="sidebar-nav" onClick={handleNavClick}>
         {/* `sidebar`, not `pinned`: an App whose effective placement is 'settings'
             (declared by the App, or moved by the user from its plugin's row in
@@ -427,12 +416,6 @@ function navLinkClass({ isActive }: { isActive: boolean }) {
 
 /* Inline SVG icons */
 
-function WalnutIcon() {
-  return (
-    <img src="/walnut-icon.png" alt="Walnut" className="sidebar-open-walnut-icon" />
-  );
-}
-
 function BellIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -441,17 +424,6 @@ function BellIcon() {
     </svg>
   );
 }
-
-function HamburgerIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="3" y1="6" x2="21" y2="6" />
-      <line x1="3" y1="12" x2="21" y2="12" />
-      <line x1="3" y1="18" x2="21" y2="18" />
-    </svg>
-  );
-}
-
 
 function ChatBubbleIcon() {
   return (

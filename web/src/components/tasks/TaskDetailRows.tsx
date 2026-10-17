@@ -70,9 +70,9 @@ interface TaskRowProps {
 }
 
 const PHASE_DOT: Partial<Record<string, string>> = {
-  IN_PROGRESS: '#007aff',
+  IN_PROGRESS: '#615C54',
   NEED_ACTION: 'var(--error)',
-  COMPLETE: '#34c759',
+  COMPLETE: '#615C54',
 };
 
 export function TaskRow({ title, phase, done, onOpen }: TaskRowProps) {

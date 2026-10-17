@@ -346,7 +346,7 @@ export function CloudSection() {
           <SettingsGroup
             heading="Set up"
             className="cloud-hero"
-            footer={<>You can also tell Ask Walnut: &ldquo;set up my cloud companion&rdquo;.</>}
+            footer={<>You can also tell Ask Fleet: &ldquo;set up my cloud companion&rdquo;.</>}
           >
             <SettingsRow
               label="Your own cloud companion"
